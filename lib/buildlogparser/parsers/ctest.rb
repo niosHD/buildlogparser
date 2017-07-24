@@ -52,7 +52,7 @@ module BuildLogParser
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:float)     { integer >> (match['\.,'] >> integer).maybe }
 
-      rule(:endofoutput) { str('<end of output>') >> newline }
+      rule(:endofoutput) { newline.maybe >> str('<end of output>') >> newline }
       rule(:output)      { ( endofoutput.absent? >> any ).repeat }
       rule(:endtime) { str('end time: ') >> restofline.as(:endtime) }
 

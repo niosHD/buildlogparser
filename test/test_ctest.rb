@@ -57,7 +57,7 @@ class CTestTest < Minitest::Test
     assert_equal ["/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"], parser.data[0][:command]
     assert_equal "/home/mwerner/Projekte/sce/test_programs/_build/src", parser.data[0][:directory]
     assert_equal "Jul 24 08:41 CEST", parser.data[0][:starttime]
-    assert_equal "textA\ntextB\n", parser.data[0][:output]
+    assert_equal "textA\ntextB", parser.data[0][:output]
     assert_equal 1.12, parser.data[0][:time_sec]
     assert_equal :passed, parser.data[0][:result]
     assert_equal "Jul 24 08:42 CEST", parser.data[0][:endtime]
