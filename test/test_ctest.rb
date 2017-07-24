@@ -81,7 +81,7 @@ class CTestTest < Minitest::Test
     logtext = IO.read(File.expand_path('../ctest/log_success_no_output.log', __FILE__))
     parser.parseLog(logtext)
     assert_equal logtext, parser.logtext
-    assert_equal 0, parser.errors, 0
+    assert_equal 0, parser.errors
     assert_equal 3, parser.data.size()
 
     assert_equal 1, parser.data[0][:nr]
@@ -103,7 +103,7 @@ class CTestTest < Minitest::Test
     logtext = IO.read(File.expand_path('../ctest/log_success_complex_command.log', __FILE__))
     parser.parseLog(logtext)
     assert_equal logtext, parser.logtext
-    assert_equal 0, parser.errors, 0
+    assert_equal 0, parser.errors
     assert_equal 2, parser.data.size()
 
     assert_equal 18, parser.data[0][:nr]
@@ -127,5 +127,38 @@ class CTestTest < Minitest::Test
     assert_equal :passed, parser.data[1][:result]
     assert_equal "Jul 24 08:45 CEST", parser.data[1][:endtime]
     assert_equal "00:00:11", parser.data[1][:time]
+  end
+
+  def test_log_failed_complex_command
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = IO.read(File.expand_path('../ctest/log_failed_complex_command.log', __FILE__))
+    parser.parseLog(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 1, parser.errors
+    assert_equal 2, parser.data.size()
+
+    assert_equal 1, parser.data[0][:nr]
+    assert_equal 20, parser.data[0][:total_nr]
+    assert_equal "RV32IMXIE_CF_endless_loop", parser.data[0][:name]
+    assert_equal ["/opt/tmp/install/sce-riscv/bin/spike", "--isa=rv32imxie", "/home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE/RV32IMXIE_CF_endless_loop"], parser.data[0][:command]
+    assert_equal "/home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE", parser.data[0][:directory]
+    assert_equal "Jul 24 10:46 CEST", parser.data[0][:starttime]
+    assert_equal "", parser.data[0][:output]
+    assert_equal 5.0, parser.data[0][:time_sec]
+    assert_equal :failed, parser.data[0][:result]
+    assert_equal "Jul 24 10:46 CEST", parser.data[0][:endtime]
+    assert_equal "00:00:05", parser.data[0][:time]
+
+    assert_equal 3, parser.data[1][:nr]
+    assert_equal 20, parser.data[1][:total_nr]
+    assert_equal "RV32IMXIE_CF_loop", parser.data[1][:name]
+    assert_equal ["/opt/tmp/install/sce-riscv/bin/spike", "--isa=rv32imxie", "/home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE/RV32IMXIE_CF_loop"], parser.data[1][:command]
+    assert_equal "/home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE", parser.data[1][:directory]
+    assert_equal "Jul 24 10:46 CEST", parser.data[1][:starttime]
+    assert_equal 0.0, parser.data[1][:time_sec]
+    assert_equal :passed, parser.data[1][:result]
+    assert_equal "Jul 24 10:46 CEST", parser.data[1][:endtime]
+    assert_equal "00:00:00", parser.data[1][:time]
   end
 end
