@@ -37,8 +37,8 @@ module BuildLogParser
 
   module CTestLog
     class Parser < Parslet::Parser
-      rule(:space)     { match['\s'] }
-      rule(:space?)    { space.repeat }
+      rule(:space)     { match('\s').repeat(1) }
+      rule(:space?)    { space.maybe }
 
       rule(:newline)   { str("\r").maybe >> str("\n") }
       rule(:restofline){ ( newline.absent? >> any ).repeat }
@@ -48,18 +48,20 @@ module BuildLogParser
       end
 
       rule(:letters)   { match['[:alnum:]'].repeat(1) }
-      rule(:path)      { match['[:alnum:]0-9\+\.\-_/'].repeat(1) }
+      rule(:path)      { match['[:alnum:]0-9=\+\.\-_/'].repeat(1) }
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:float)     { integer >> (match['\.,'] >> integer).maybe }
 
       rule(:endofoutput) { str('<end of output>') >> newline }
       rule(:output)      { ( endofoutput.absent? >> any ).repeat }
-
       rule(:endtime) { str('end time: ') >> restofline.as(:endtime) }
+
+      rule(:quotedcommand) { str('"') >> path.as(:commandstring) >> str('"') }
+      rule(:commandlist) { quotedcommand >> (space >> quotedcommand).repeat }
 
       rule(:event) do
         integer.as(:nr) >> str('/') >> integer.as(:total_nr) >> str(' Test: ') >> path.as(:name) >> newline >>
-        str('Command: "')  >> path.as(:command) >> str('"') >> newline >>
+        str('Command: ')  >> commandlist.as(:command) >> newline >>
         str('Directory: ') >> path.as(:directory) >> newline >>
         str('"') >> path >> str('" start time: ') >> restofline.as(:starttime) >> newline >>
         str('Output:') >> newline >>
@@ -68,7 +70,6 @@ module BuildLogParser
         endofoutput >>
         str('Test time =')>> space? >> float.as(:time_sec) >> str(' sec') >> newline >>
         str('----------------------------------------------------------') >> newline >>
-#        str('Test Passed.') >> newline >>
         str('Test ') >> letters.as(:result) >>
         ( endtime.absent? >> any ).repeat >> endtime >> newline >>
         str('"') >> path >> str('" time elapsed: ') >> restofline.as(:time) >> newline >>
@@ -81,22 +82,16 @@ module BuildLogParser
 
     class Transform < Parslet::Transform
       rule(:drop => subtree(:tree)) { }
-      rule(:nr => simple(:nr), :total_nr => simple(:total_nr), :name => simple(:name), :command => simple(:command), :directory => simple(:directory), :starttime => simple(:starttime), :output => simple(:output), :time_sec => simple(:time_sec), :result => simple(:result), :endtime => simple(:endtime), :time => simple(:time) ) do
-        if result == 'Pass' || result == 'Passed'
-          result = :passed
-        else
-          result = :failed
-        end
-        { :nr => Integer(nr), :total_nr => Integer(total_nr), :name => String(name), :command => String(command), :directory => String(directory), :starttime => String(starttime), :output => String(output), :time_sec => Float(time_sec), :result => result, :endtime => String(endtime), :time => String(time) }
+      rule(:nr => simple(:nr), :total_nr => simple(:total_nr), :name => simple(:name), :command => subtree(:command), :directory => simple(:directory), :starttime => simple(:starttime), :output => subtree(:output), :time_sec => simple(:time_sec), :result => simple(:result), :endtime => simple(:endtime), :time => simple(:time) ) do
+        result_symb = :failed
+        result_symb = :passed if result == 'Pass' || result == 'Passed'
+        outputstr =  String(output)
+        outputstr = "" if output.is_a?(Array) and output.size() == 0
+        commandarray = command
+        commandarray = [ command ] if not command.is_a?(Array)
+        { :nr => Integer(nr), :total_nr => Integer(total_nr), :name => String(name), :command => commandarray, :directory => String(directory), :starttime => String(starttime), :output => outputstr, :time_sec => Float(time_sec), :result => result_symb, :endtime => String(endtime), :time => String(time) }
       end
-      rule(:nr => simple(:nr), :total_nr => simple(:total_nr), :name => simple(:name), :command => simple(:command), :directory => simple(:directory), :starttime => simple(:starttime), :output => sequence(:output), :time_sec => simple(:time_sec), :result => simple(:result), :endtime => simple(:endtime), :time => simple(:time) ) do
-        if result == 'Pass' || result == 'Passed'
-          result = :passed
-        else
-          result = :failed
-        end
-        { :nr => Integer(nr), :total_nr => Integer(total_nr), :name => String(name), :command => String(command), :directory => String(directory), :starttime => String(starttime), :output => "", :time_sec => Float(time_sec), :result => result, :endtime => String(endtime), :time => String(time) }
-      end
+      rule(:commandstring => simple(:commandstring)) { String(commandstring) }
       rule(:array => subtree(:tree)) { tree.is_a?(Array) ? tree.compact : [ tree ]  }
     end # class Transform
   end # module CTestLog
