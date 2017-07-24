@@ -1,0 +1,4 @@
+   text	   data	    bss	    dec	    hex	filename
+    308	     76	     64	    448	    1c0	src/simpleadd
+    120	     64	      0	    184	     b8	arch/RV32IMXIE/RV32IMXIE_CF_direct_call
+  12284	     84	   2132	  14500	   38a4	coremark_v1.0/coremark

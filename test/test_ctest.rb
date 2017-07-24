@@ -1,8 +1,6 @@
 require 'minitest/autorun'
 require 'buildlogparser'
 
-require 'pp'
-
 class CTestTest < Minitest::Test
   def test_stdout_success
     parser = BuildLogParser::CTestParser.new()
