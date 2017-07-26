@@ -25,7 +25,7 @@ module BuildLogParser
         hexnumber.as(:hex) >> space? >> path.as(:filename) >> newline
       end
 
-      rule(:start) { ((header >> event.repeat(1)) | (restofline >> newline).as(:drop).repeat.as(:array)) }
+      rule(:start) { ((header >> event.repeat(1)).as(:array) | (restofline >> newline).as(:drop)).repeat.as(:array) }
       root(:start)
     end # class Parser
 
@@ -34,7 +34,7 @@ module BuildLogParser
       rule(:text => simple(:text), :data => simple(:data), :bss => simple(:bss), :dec => simple(:dec), :hex => simple(:hex), :filename => simple(:filename)) do
         { :text => Integer(text), :data => Integer(data), :bss => Integer(bss), :total => Integer(dec), :filename => String(filename) }
       end
-      rule(:array => subtree(:tree)) { tree.is_a?(Array) ? tree.compact : [ tree ]  }
+      rule(:array => subtree(:tree)) { tree.compact.flatten }
     end # class Transform
   end # module SizeBerkeleyStdout
 

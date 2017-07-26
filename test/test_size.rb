@@ -17,6 +17,36 @@ class SizeTest < Minitest::Test
     assert_equal "aes", parser.data[0][:filename]
   end
 
+  def test_berkeley_stdout_garbage_before
+    parser = BuildLogParser::SizeParser.new()
+
+    logtext = IO.read(File.expand_path('../size/berkeley_stdout_garbage_before.txt', __FILE__))
+    parser.parseBerkeleyStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 1, parser.data.size()
+
+    assert_equal 4960, parser.data[0][:text]
+    assert_equal 72, parser.data[0][:data]
+    assert_equal 64, parser.data[0][:bss]
+    assert_equal 5096, parser.data[0][:total]
+    assert_equal "aes", parser.data[0][:filename]
+  end
+
+  def test_berkeley_stdout_garbage_behind
+    parser = BuildLogParser::SizeParser.new()
+
+    logtext = IO.read(File.expand_path('../size/berkeley_stdout_garbage_behind.txt', __FILE__))
+    parser.parseBerkeleyStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 1, parser.data.size()
+
+    assert_equal 4960, parser.data[0][:text]
+    assert_equal 72, parser.data[0][:data]
+    assert_equal 64, parser.data[0][:bss]
+    assert_equal 5096, parser.data[0][:total]
+    assert_equal "aes", parser.data[0][:filename]
+  end
+
   def test_berkeley_stdout_multi_line
     parser = BuildLogParser::SizeParser.new()
 
@@ -69,5 +99,14 @@ class SizeTest < Minitest::Test
     assert_equal 2132, parser.data[2][:bss]
     assert_equal 14500, parser.data[2][:total]
     assert_equal "coremark_v1.0/coremark", parser.data[2][:filename]
+  end
+
+  def test_berkeley_stdout_multiple
+    parser = BuildLogParser::SizeParser.new()
+
+    logtext = IO.read(File.expand_path('../size/berkeley_stdout_multiple.txt', __FILE__))
+    parser.parseBerkeleyStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 20, parser.data.size()
   end
 end

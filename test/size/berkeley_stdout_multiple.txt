@@ -1,0 +1,231 @@
+[  1%] Building C object cpu/CMakeFiles/cpu.dir/dummy.c.obj
+[  3%] Building C object cpu/CMakeFiles/cpu.dir/SPIKE/startup.c.obj
+[  5%] Building C object cpu/CMakeFiles/cpu.dir/SPIKE/mtrap.c.obj
+[  7%] Linking C static library libcpu.a
+[  7%] Built target cpu
+[  8%] Building C object arch/CMakeFiles/arch.dir/printf.c.obj
+[ 10%] Building C object arch/CMakeFiles/arch.dir/print.c.obj
+[ 12%] Building ASM object arch/CMakeFiles/arch.dir/RV32IMXIE/crt0.S.obj
+[ 14%] Building C object arch/CMakeFiles/arch.dir/RV32IMXIE/memcpy.c.obj
+[ 14%] Building C object arch/CMakeFiles/arch.dir/RV32IMXIE/cycle.c.obj
+[ 16%] Building C object arch/CMakeFiles/arch.dir/RV32IMXIE/memset.c.obj
+[ 17%] Linking C static library libarch.a
+[ 17%] Built target arch
+[ 19%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bpgeu.dir/asm_CF_tests/bpgeu.S.obj
+[ 19%] Linking ASM executable RV32IMXIE_CF_bpgeu
+Create extended listing of RV32IMXIE_CF_bpgeu
+Print size of RV32IMXIE_CF_bpgeu
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_bpgeu
+[ 19%] Built target RV32IMXIE_CF_bpgeu
+[ 21%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_indirect_call.dir/asm_CF_tests/indirect_call.S.obj
+[ 21%] Linking ASM executable RV32IMXIE_CF_indirect_call
+Create extended listing of RV32IMXIE_CF_indirect_call
+Print size of RV32IMXIE_CF_indirect_call
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_indirect_call
+[ 21%] Built target RV32IMXIE_CF_indirect_call
+[ 23%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bpne.dir/asm_CF_tests/bpne.S.obj
+[ 25%] Linking ASM executable RV32IMXIE_CF_bpne
+Create extended listing of RV32IMXIE_CF_bpne
+Print size of RV32IMXIE_CF_bpne
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_bpne
+[ 25%] Built target RV32IMXIE_CF_bpne
+[ 25%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bpdeq.dir/asm_CF_tests/bpdeq.S.obj
+[ 26%] Linking ASM executable RV32IMXIE_CF_bpdeq
+Create extended listing of RV32IMXIE_CF_bpdeq
+Print size of RV32IMXIE_CF_bpdeq
+   text	   data	    bss	    dec	    hex	filename
+    144	     64	      0	    208	     d0	RV32IMXIE_CF_bpdeq
+[ 26%] Built target RV32IMXIE_CF_bpdeq
+[ 28%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_loop.dir/asm_CF_tests/loop.S.obj
+[ 30%] Linking ASM executable RV32IMXIE_CF_loop
+Create extended listing of RV32IMXIE_CF_loop
+Print size of RV32IMXIE_CF_loop
+   text	   data	    bss	    dec	    hex	filename
+    116	     64	      0	    180	     b4	RV32IMXIE_CF_loop
+[ 30%] Built target RV32IMXIE_CF_loop
+[ 32%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bpltu.dir/asm_CF_tests/bpltu.S.obj
+[ 33%] Linking ASM executable RV32IMXIE_CF_bpltu
+Create extended listing of RV32IMXIE_CF_bpltu
+Print size of RV32IMXIE_CF_bpltu
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_bpltu
+[ 33%] Built target RV32IMXIE_CF_bpltu
+[ 35%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_endless_loop.dir/asm_CF_tests/endless_loop.S.obj
+[ 37%] Linking ASM executable RV32IMXIE_CF_endless_loop
+Create extended listing of RV32IMXIE_CF_endless_loop
+Print size of RV32IMXIE_CF_endless_loop
+   text	   data	    bss	    dec	    hex	filename
+     44	      0	      0	     44	     2c	RV32IMXIE_CF_endless_loop
+[ 37%] Built target RV32IMXIE_CF_endless_loop
+[ 39%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bpeq.dir/asm_CF_tests/bpeq.S.obj
+[ 41%] Linking ASM executable RV32IMXIE_CF_bpeq
+Create extended listing of RV32IMXIE_CF_bpeq
+Print size of RV32IMXIE_CF_bpeq
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_bpeq
+[ 41%] Built target RV32IMXIE_CF_bpeq
+[ 41%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_direct_call.dir/asm_CF_tests/direct_call.S.obj
+[ 42%] Linking ASM executable RV32IMXIE_CF_direct_call
+Create extended listing of RV32IMXIE_CF_direct_call
+Print size of RV32IMXIE_CF_direct_call
+   text	   data	    bss	    dec	    hex	filename
+    120	     64	      0	    184	     b8	RV32IMXIE_CF_direct_call
+[ 42%] Built target RV32IMXIE_CF_direct_call
+[ 44%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bplt.dir/asm_CF_tests/bplt.S.obj
+[ 46%] Linking ASM executable RV32IMXIE_CF_bplt
+Create extended listing of RV32IMXIE_CF_bplt
+Print size of RV32IMXIE_CF_bplt
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_bplt
+[ 46%] Built target RV32IMXIE_CF_bplt
+[ 48%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_no_cf.dir/asm_CF_tests/no_cf.S.obj
+[ 50%] Linking ASM executable RV32IMXIE_CF_no_cf
+Create extended listing of RV32IMXIE_CF_no_cf
+Print size of RV32IMXIE_CF_no_cf
+   text	   data	    bss	    dec	    hex	filename
+     88	     64	      0	    152	     98	RV32IMXIE_CF_no_cf
+[ 50%] Built target RV32IMXIE_CF_no_cf
+[ 51%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_exception.dir/asm_CF_tests/exception.S.obj
+[ 53%] Linking ASM executable RV32IMXIE_CF_exception
+Create extended listing of RV32IMXIE_CF_exception
+Print size of RV32IMXIE_CF_exception
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_exception
+[ 53%] Built target RV32IMXIE_CF_exception
+[ 55%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_memaccess_exception.dir/asm_CF_tests/memaccess_exception.S.obj
+[ 57%] Linking ASM executable RV32IMXIE_CF_memaccess_exception
+Create extended listing of RV32IMXIE_CF_memaccess_exception
+Print size of RV32IMXIE_CF_memaccess_exception
+   text	   data	    bss	    dec	    hex	filename
+    128	     64	      0	    192	     c0	RV32IMXIE_CF_memaccess_exception
+[ 57%] Built target RV32IMXIE_CF_memaccess_exception
+[ 58%] Building ASM object arch/RV32IMXIE/CMakeFiles/RV32IMXIE_CF_bpge.dir/asm_CF_tests/bpge.S.obj
+[ 60%] Linking ASM executable RV32IMXIE_CF_bpge
+Create extended listing of RV32IMXIE_CF_bpge
+Print size of RV32IMXIE_CF_bpge
+   text	   data	    bss	    dec	    hex	filename
+    132	     64	      0	    196	     c4	RV32IMXIE_CF_bpge
+[ 60%] Built target RV32IMXIE_CF_bpge
+[ 62%] Building C object src/CMakeFiles/bigen.dir/bigen/debug.c.obj
+[ 64%] Building C object src/CMakeFiles/bigen.dir/bigen/main.c.obj
+[ 66%] Building C object src/CMakeFiles/bigen.dir/bigen/bi_gen.c.obj
+[ 67%] Linking C executable bigen
+Create extended listing of bigen
+Print size of bigen
+   text	   data	    bss	    dec	    hex	filename
+  12656	     72	     68	  12796	   31fc	bigen
+[ 67%] Built target bigen
+[ 69%] Building C object src/CMakeFiles/indcall.dir/indcall/functor.c.obj
+[ 71%] Building C object src/CMakeFiles/indcall.dir/indcall/main.c.obj
+[ 73%] Linking C executable indcall
+Create extended listing of indcall
+Print size of indcall
+   text	   data	    bss	    dec	    hex	filename
+    952	     72	     64	   1088	    440	indcall
+[ 73%] Built target indcall
+[ 75%] Building C object src/CMakeFiles/aes.dir/aes/main.c.obj
+[ 76%] Building C object src/CMakeFiles/aes.dir/aes/aes256.c.obj
+[ 78%] Linking C executable aes
+Create extended listing of aes
+Print size of aes
+   text	   data	    bss	    dec	    hex	filename
+   4960	     72	     64	   5096	   13e8	aes
+[ 78%] Built target aes
+[ 80%] Building C object src/CMakeFiles/dhrystone.dir/dhrystone/dry.c.obj
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c: In function 'main':
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:654:7: warning: implicit declaration of function 'Proc_5' [-Wimplicit-function-declaration]
+       Proc_5();
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:655:7: warning: implicit declaration of function 'Proc_4' [-Wimplicit-function-declaration]
+       Proc_4();
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:661:21: warning: implicit declaration of function 'Func_2' [-Wimplicit-function-declaration]
+       Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+                     ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:667:2: warning: implicit declaration of function 'Proc_7' [-Wimplicit-function-declaration]
+  Proc_7 (Int_1_Loc, Int_2_Loc, &Int_3_Loc);
+  ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:672:7: warning: implicit declaration of function 'Proc_8' [-Wimplicit-function-declaration]
+       Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:674:7: warning: implicit declaration of function 'Proc_1' [-Wimplicit-function-declaration]
+       Proc_1 (Ptr_Glob);
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:681:4: warning: implicit declaration of function 'Proc_6' [-Wimplicit-function-declaration]
+    Proc_6 (Ident_1, &Enum_Loc);
+    ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:692:7: warning: implicit declaration of function 'Proc_2' [-Wimplicit-function-declaration]
+       Proc_2 (&Int_1_Loc);
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c: At top level:
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:785:6: warning: conflicting types for 'Proc_1'
+ void Proc_1 (Ptr_Val_Par)
+      ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:674:7: note: previous implicit declaration of 'Proc_1' was here
+       Proc_1 (Ptr_Glob);
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c: In function 'Proc_1':
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:801:3: warning: implicit declaration of function 'Proc_3' [-Wimplicit-function-declaration]
+   Proc_3 (&Next_Record->Ptr_Comp);
+   ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c: At top level:
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:819:6: warning: conflicting types for 'Proc_2'
+ void Proc_2 (Int_Par_Ref)
+      ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:692:7: note: previous implicit declaration of 'Proc_2' was here
+       Proc_2 (&Int_1_Loc);
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:842:6: warning: conflicting types for 'Proc_3'
+ void Proc_3 (Ptr_Ref_Par)
+      ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:801:3: note: previous implicit declaration of 'Proc_3' was here
+   Proc_3 (&Next_Record->Ptr_Comp);
+   ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:857:6: warning: conflicting types for 'Proc_4'
+ void Proc_4 () /* without parameters */
+      ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:655:7: note: previous implicit declaration of 'Proc_4' was here
+       Proc_4();
+       ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:869:6: warning: conflicting types for 'Proc_5'
+ void Proc_5 () /* without parameters */
+      ^~~~~~
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:654:7: note: previous implicit declaration of 'Proc_5' was here
+       Proc_5();
+       ^~~~~~
+[ 80%] Building C object src/CMakeFiles/dhrystone.dir/dhrystone/dry2.c.obj
+In file included from /home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry2.c:2:0:
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c: In function 'Proc_6':
+/home/mwerner/Projekte/sce/test_programs/src/dhrystone/dry.c:915:9: warning: implicit declaration of function 'Func_3' [-Wimplicit-function-declaration]
+   if (! Func_3 (Enum_Val_Par))
+         ^~~~~~
+[ 82%] Linking C executable dhrystone
+Create extended listing of dhrystone
+Print size of dhrystone
+   text	   data	    bss	    dec	    hex	filename
+   6844	     72	  10436	  17352	   43c8	dhrystone
+[ 82%] Built target dhrystone
+[ 83%] Building C object src/CMakeFiles/simpleadd.dir/simpleadd/var.c.obj
+[ 85%] Building C object src/CMakeFiles/simpleadd.dir/simpleadd/simpleadd.c.obj
+[ 87%] Linking C executable simpleadd
+Create extended listing of simpleadd
+Print size of simpleadd
+   text	   data	    bss	    dec	    hex	filename
+    308	     76	     64	    448	    1c0	simpleadd
+[ 87%] Built target simpleadd
+[ 89%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/core_list_join.c.obj
+[ 91%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/core_matrix.c.obj
+[ 92%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/core_main.c.obj
+[ 94%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/core_util.c.obj
+[ 96%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/core_state.c.obj
+[ 98%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/MINIMAL/printf.c.obj
+[ 98%] Building C object coremark_v1.0/CMakeFiles/coremark.dir/MINIMAL/core_portme.c.obj
+[100%] Linking C executable coremark
+Create extended listing of coremark
+Print size of coremark
+   text	   data	    bss	    dec	    hex	filename
+  12284	     84	   2132	  14500	   38a4	coremark
+[100%] Built target coremark
