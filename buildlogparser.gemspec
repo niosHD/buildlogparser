@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
 
   spec.add_development_dependency "bundler", "~> 1.15"
-  spec.add_development_dependency "codecov", "~> 1.1.10"
+  spec.add_development_dependency "codecov", "~> 0.1.10"
   spec.add_development_dependency "minitest", "~> 5.8"
   spec.add_development_dependency "rake", "~> 10.5"
   spec.add_development_dependency "simplecov", "~> 0.14"

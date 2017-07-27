@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/niosHD/buildlogparser.svg?branch=develop)](https://travis-ci.org/IAIK/flecc_in_c)
+[![Build Status](https://travis-ci.org/niosHD/buildlogparser.svg?branch=develop)](https://travis-ci.org/niosHD/buildlogparser)
+[![codecov](https://codecov.io/gh/niosHD/buildlogparser/branch/develop/graph/badge.svg)](https://codecov.io/gh/niosHD/buildlogparser)
 
 # buildlogparser Gem
 
