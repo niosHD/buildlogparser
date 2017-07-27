@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'buildlogparser'
+require 'helper'
 
 class CTestTest < Minitest::Test
   def test_stdout_success

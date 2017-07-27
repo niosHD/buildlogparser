@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'buildlogparser'
+require 'helper'
 
 class SizeTest < Minitest::Test
   def test_berkeley_stdout_one_line

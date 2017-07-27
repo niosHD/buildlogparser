@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'buildlogparser'
+require 'helper'
 
 class CMakeTest < Minitest::Test
   def test_stdout_makefile_clean_initial_build
