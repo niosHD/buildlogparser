@@ -1,6 +1,6 @@
 # buildlogparser Gem
 
-Collection various of parsers for the extraction of information from build and execution logs.
+Collection of various parsers for the extraction of information from build and execution logs.
 
 ## Tested Program Versions 
 
