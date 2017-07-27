@@ -1,0 +1,9 @@
+dist: trusty
+sudo: false
+
+language: ruby
+
+cache: bundler
+
+rvm:
+  - 2.3
