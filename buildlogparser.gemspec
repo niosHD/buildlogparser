@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = BuildLogParser::VERSION::STRING
   spec.authors       = ["Mario Werner"]
   spec.email         = ["mario.werner@iaik.tugraz.at"]
-  spec.summary       = "Parser for the extraction of information from build and execution logs."
+  spec.summary       = "Collection of various parsers for the extraction of information from build and execution logs."
   spec.homepage      = "https://github.com/niosHD/buildlogparser.git"
   spec.license       = "MIT"
 
