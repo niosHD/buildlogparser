@@ -1,0 +1,17 @@
+[  7%] Building C object cpu/CMakeFiles/cpu.dir/dummy.c.obj
+[ 15%] Building C object cpu/CMakeFiles/cpu.dir/SPIKE/startup.c.obj
+[ 23%] Building C object cpu/CMakeFiles/cpu.dir/SPIKE/mtrap.c.obj
+[ 30%] Linking C static library libcpu.a
+[ 30%] Built target cpu
+[ 38%] Building C object arch/CMakeFiles/arch.dir/printf.c.obj
+[ 46%] Building C object arch/CMakeFiles/arch.dir/print.c.obj
+[ 53%] Building ASM object arch/CMakeFiles/arch.dir/RV32IMXIE/crt0.S.obj
+[ 61%] Building C object arch/CMakeFiles/arch.dir/RV32IMXIE/memcpy.c.obj
+[ 61%] Building C object arch/CMakeFiles/arch.dir/RV32IMXIE/cycle.c.obj
+[ 69%] Building C object arch/CMakeFiles/arch.dir/RV32IMXIE/memset.c.obj
+[ 76%] Linking C static library libarch.a
+[ 76%] Built target arch
+[ 84%] Building C object src/CMakeFiles/aes.dir/aes/main.c.obj
+[ 92%] Building C object src/CMakeFiles/aes.dir/aes/aes256.c.obj
+[100%] Linking C executable aes
+[100%] Built target aes
