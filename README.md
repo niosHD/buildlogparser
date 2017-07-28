@@ -8,5 +8,6 @@ Collection of various parsers for the extraction of information from build and e
 ## Tested Program Versions 
 
 * cmake/ctest 3.5.1
+* coremark 1.0
 * dhrystone (C Version) 2.1 and 2.2
 * size (GNU Binutils 2.26.1)
