@@ -1,0 +1,7 @@
+Dhrystone Benchmark, Version C, Version 2.2
+Program compiled without 'register' attribute
+Using times(), HZ=100
+
+Trying 50000000 runs through Dhrystone:
+Microseconds for one run through Dhrystone:        0.1 
+Dhrystones per Second:                         9328358 
