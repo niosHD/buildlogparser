@@ -16,9 +16,11 @@ module BuildLogParser
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:float)     { integer >> (match['\.,'] >> integer).maybe }
 
+      rule(:regexError) { str('Required regular expression not found.Regex=[') >> match['^\]'].repeat(1) >> str(']') >> space? }
+
       rule(:event) do
         space? >> integer.as(:nr) >> str('/') >> integer.as(:total_nr) >> space? >> str('Test') >> space? >> str('#') >>
-        integer >> str(': ') >> letters.as(:name) >> match['\.*\s'].repeat(1) >> letters.as(:result) >> space? >>
+        integer >> str(': ') >> letters.as(:name) >> match['\.*\s'].repeat(1) >> letters.as(:result) >> space? >> regexError.maybe >>
         float.as(:time_sec) >> anyline
       end
 

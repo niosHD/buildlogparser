@@ -39,6 +39,28 @@ class CTestTest < Minitest::Test
     assert_equal 5.0, parser.data[0][:time_sec]
   end
 
+  def test_stdout_regex_error
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = IO.read(File.expand_path('../ctest/stdout_regex_error.txt', __FILE__))
+    parser.parseStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 2, parser.errors
+    assert_equal 6, parser.data.size()
+
+    assert_equal 3, parser.data[2][:nr]
+    assert_equal 6, parser.data[2][:total_nr]
+    assert_equal "dhrystone", parser.data[2][:name]
+    assert_equal :timeout, parser.data[2][:result]
+    assert_equal 180.01, parser.data[2][:time_sec]
+
+    assert_equal 6, parser.data[5][:nr]
+    assert_equal 6, parser.data[5][:total_nr]
+    assert_equal "coremark", parser.data[5][:name]
+    assert_equal :failed, parser.data[5][:result]
+    assert_equal 4.92, parser.data[5][:time_sec]
+  end
+
   def test_log_success
     parser = BuildLogParser::CTestParser.new()
 
