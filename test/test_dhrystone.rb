@@ -1,6 +1,24 @@
 require 'helper'
 
 class DhrystoneTest < Minitest::Test
+  def test_empty_input
+    parser = BuildLogParser::DhrystoneParser.new()
+
+    logtext = ""
+    parser.parse(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.data.size()
+  end
+
+  def test_no_match
+    parser = BuildLogParser::DhrystoneParser.new()
+
+    logtext = "this\nstring\ndoes\nnot\ncontain\ndhrystone\noutput"
+    parser.parse(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.data.size()
+  end
+
   def test_version21_example_1
     parser = BuildLogParser::DhrystoneParser.new()
 

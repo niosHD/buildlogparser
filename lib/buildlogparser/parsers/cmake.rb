@@ -41,7 +41,7 @@ module BuildLogParser
         targetendline.as(:targetend)
       end
 
-      rule(:start) { (target | (restofline >> newline).as(:drop)).repeat.as(:array) }
+      rule(:start) { (target | (restofline >> newline | any).as(:drop)).repeat.as(:array) }
       root(:start)
     end # class Parser
 

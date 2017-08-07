@@ -1,6 +1,24 @@
 require 'helper'
 
 class SizeTest < Minitest::Test
+  def test_berkeley_stdout_empty_input
+    parser = BuildLogParser::SizeParser.new()
+
+    logtext = ""
+    parser.parseBerkeleyStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.data.size()
+  end
+
+  def test_berkeley_stdout_no_match
+    parser = BuildLogParser::SizeParser.new()
+
+    logtext = "this\nstring\ndoes\nnot\ncontain\nsize\noutput"
+    parser.parseBerkeleyStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.data.size()
+  end
+
   def test_berkeley_stdout_one_line
     parser = BuildLogParser::SizeParser.new()
 

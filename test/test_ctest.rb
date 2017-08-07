@@ -1,6 +1,26 @@
 require 'helper'
 
 class CTestTest < Minitest::Test
+  def test_stdout_empty_input
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = ""
+    parser.parseStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.errors
+    assert_equal 0, parser.data.size()
+  end
+
+  def test_stdout_no_match
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = "this\nstring\ndoes\nnot\ncontain\nctest\noutput"
+    parser.parseStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.errors
+    assert_equal 0, parser.data.size()
+  end
+
   def test_stdout_success
     parser = BuildLogParser::CTestParser.new()
 
@@ -59,6 +79,27 @@ class CTestTest < Minitest::Test
     assert_equal "coremark", parser.data[5][:name]
     assert_equal :failed, parser.data[5][:result]
     assert_equal 4.92, parser.data[5][:time_sec]
+  end
+
+
+  def test_log_empty_input
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = ""
+    parser.parseLog(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.errors
+    assert_equal 0, parser.data.size()
+  end
+
+  def test_log_no_match
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = "this\nstring\ndoes\nnot\ncontain\nctest\noutput"
+    parser.parseLog(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.errors
+    assert_equal 0, parser.data.size()
   end
 
   def test_log_success

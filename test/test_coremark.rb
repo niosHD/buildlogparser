@@ -1,6 +1,24 @@
 require 'helper'
 
 class CoremarkTest < Minitest::Test
+  def test_empty_input
+    parser = BuildLogParser::CoremarkParser.new()
+
+    logtext = ""
+    parser.parse(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.data.size()
+  end
+
+  def test_no_match
+    parser = BuildLogParser::CoremarkParser.new()
+
+    logtext = "this\nstring\ndoes\nnot\ncontain\ncoremark\noutput"
+    parser.parse(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.data.size()
+  end
+
   def test_example_1
     parser = BuildLogParser::CoremarkParser.new()
 

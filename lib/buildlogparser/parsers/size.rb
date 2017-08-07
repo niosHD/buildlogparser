@@ -25,7 +25,7 @@ module BuildLogParser
         hexnumber.as(:hex) >> space? >> path.as(:filename) >> newline
       end
 
-      rule(:start) { ((header >> event.repeat(1)).as(:array) | (restofline >> newline).as(:drop)).repeat.as(:array) }
+      rule(:start) { ((header >> event.repeat(1)).as(:array) | (restofline >> newline | any).as(:drop)).repeat.as(:array) }
       root(:start)
     end # class Parser
 

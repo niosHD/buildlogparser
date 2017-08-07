@@ -1,6 +1,24 @@
 require 'helper'
 
 class CMakeTest < Minitest::Test
+  def test_stdout_makefile_empty_input
+    parser = BuildLogParser::CMakeParser.new()
+
+    logtext = ""
+    parser.parseMakefileStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.targets.size()
+  end
+
+  def test_stdout_makefile_no_match
+    parser = BuildLogParser::CMakeParser.new()
+
+    logtext = "this\nstring\ndoes\nnot\ncontain\ncmake\noutput"
+    parser.parseMakefileStdout(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 0, parser.targets.size()
+  end
+
   def test_stdout_makefile_clean_initial_build
     parser = BuildLogParser::CMakeParser.new()
 

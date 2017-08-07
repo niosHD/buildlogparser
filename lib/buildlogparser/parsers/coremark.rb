@@ -23,7 +23,7 @@ module BuildLogParser
         str('Memory location') >> space? >> str(':') >> space? >> restofline.as(:memory_location)
       end
 
-      rule(:start) { (event | (restofline >> newline).as(:drop)).repeat.as(:array) }
+      rule(:start) { (event | (restofline >> newline | any).as(:drop)).repeat.as(:array) }
       root(:start)
     end # class Parser
 
