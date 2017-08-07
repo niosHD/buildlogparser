@@ -1,0 +1,281 @@
+Start testing: Aug 07 14:24 CEST
+----------------------------------------------------------
+1/6 Testing: simpleadd
+1/6 Test: simpleadd
+Command: "/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb" "/home/mwerner/Projekte/sce/test_programs/_build/src/simpleadd"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"simpleadd" start time: Aug 07 14:24 CEST
+Output:
+----------------------------------------------------------
+Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/src/simpleadd'
+Executing commands:
+["source /home/mariowe/setup_pulpino.sh",
+ "/home/mariowe/run_pulpino.py /home/mariowe/simpleadd"]
+UART Stdout:
+Perf CYCLES:   44
+Perf INSN:     11
+Perf CINSN:    0
+Perf LD_STALL: 0
+Perf JR_STALL: 0
+Perf IMISS:    0
+Perf #LD:      1
+Perf #ST:      1
+Perf #JUMP:    3
+Perf #BRANCH:  0
+Perf #TAKEN:   0
+Perf #RVC:     0
+
+
+<end of output>
+Test time =  11.04 sec
+----------------------------------------------------------
+Test Passed.
+"simpleadd" end time: Aug 07 14:24 CEST
+"simpleadd" time elapsed: 00:00:11
+----------------------------------------------------------
+
+2/6 Testing: bigen
+2/6 Test: bigen
+Command: "/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb" "/home/mwerner/Projekte/sce/test_programs/_build/src/bigen"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"bigen" start time: Aug 07 14:24 CEST
+Output:
+----------------------------------------------------------
+Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/src/bigen'
+Executing commands:
+["source /home/mariowe/setup_pulpino.sh",
+ "/home/mariowe/run_pulpino.py /home/mariowe/bigen"]
+UART Stdout:
+bi_add 6747 ... :-)
+bi_add 6748 ... :-)
+bi_add 6749 ... :-)
+bi_add 6750 ... :-)
+bi_add 6751 ... :-)
+bi_add 6752 ... :-)
+bi_add 6753 ... :-)
+bi_add 6754 ... :-)
+bi_add 6755 ... :-)
+bi_add 6756 ... :-)
+bi_add 6757 ... :-)
+bi_add 6758 ... :-)
+bi_add 6759 ... :-)
+bi_add 6760 ... :-)
+bi_subtract 6761 ... :-)
+bi_subtract 6762 ... :-)
+bi_subtract 6763 ... :-)
+bi_subtract 6764 ... :-)
+bi_subtract 6765 ... :-)
+bi_subtract 6766 ... :-)
+bi_subtract 6767 ... :-)
+bi_subtract 6768 ... :-)
+bi_subtract 6769 ... :-)
+bi_subtract 6770 ... :-)
+bi_subtract 6771 ... :-)
+bi_subtract 6772 ... :-)
+bi_subtract 6773 ... :-)
+bi_subtract 6774 ... :-)
+bi_subtract 6775 ... :-)
+bi_subtract 6776 ... :-)
+bi_subtract 6777 ... :-)
+bi_subtract 6778 ... :-)
+bi_subtract 6779 ... :-)
+bi_subtract 6780 ... :-)
+bi_subtract 6781 ... :-)
+bi_subtract 6782 ... :-)
+bi_subtract 6783 ... :-)
+bi_subtract 6784 ... :-)
+bi_subtract 6785 ... :-)
+bi_subtract 6786 ... :-)
+bi_compare 6787 ... :-)
+bi_compare 6788 ... :-)
+bi_compare 6789 ... :-)
+bi_compare 6790 ... :-)
+bi_compare 6791 ... :-)
+bi_compare 6792 ... :-)
+bi_compare 6793 ... :-)
+bi_compare 6794 ... :-)
+bi_compare 6795 ... :-)
+bi_compare 6796 ... :-)
+bi_compare 6797 ... :-)
+bi_compare 6798 ... :-)
+bi_multiply 6799 ... :-)
+bi_multiply 6800 ... :-)
+bi_multiply 6801 ... :-)
+bi_multiply 6802 ... :-)
+bi_multiply 6803 ... :-)
+bi_multiply 6804 ... :-)
+bi_multiply 6805 ... :-)
+bi_multiply 6806 ... :-)
+bi_multiply 6807 ... :-)
+bi_shiftRight 6808 ... :-)
+bi_shiftRight 6809 ... :-)
+bi_shiftRight 6810 ... :-)
+bi_shiftRight 6811 ... :-)
+bi_shiftRight 6812 ... :-)
+bi_shiftRight 6813 ... :-)
+bi_shiftRight 6814 ... :-)
+bi_shiftRight 6815 ... :-)
+bi_shiftRight 6816 ... :-)
+bi_shiftRight 6817 ... :-)
+bi_shiftRight 6818 ... :-)
+bi_shiftRight 6819 ... :-)
+bi_shiftRight 6820 ... :-)
+bi_shiftRight 6821 ... :-)
+bi_shiftRight 6822 ... :-)
+bi_shiftLeft 6823 ... :-)
+bi_shiftLeft 6824 ... :-)
+bi_shiftLeft 6825 ... :-)
+bi_shiftLeft 6826 ... :-)
+bi_shiftLeft 6827 ... :-)
+bi_shiftLeft 6828 ... :-)
+bi_shiftLeft 6829 ... :-)
+bi_shiftLeft 6830 ... :-)
+bi_shiftLeft 6831 ... :-)
+bi_shiftLeft 6832 ... :-)
+bi_shiftLeft 6833 ... :-)
+bi_shiftLeft 6834 ... :-)
+bi_shiftLeft 6835 ... :-)
+bi_shiftLeft 6836 ... :-)
+bi_shiftLeft 6837 ... :-)
+Perf CYCLES:   696032
+Perf INSN:     232821
+Perf CINSN:    0
+Perf LD_STALL: 62591
+Perf JR_STALL: 0
+Perf IMISS:    0
+Perf #LD:      66900
+Perf #ST:      5867
+Perf #JUMP:    12702
+Perf #BRANCH:  63946
+Perf #TAKEN:   61273
+Perf #RVC:     0
+
+
+<end of output>
+Test time =  83.69 sec
+----------------------------------------------------------
+Test Passed.
+"bigen" end time: Aug 07 14:26 CEST
+"bigen" time elapsed: 00:01:23
+----------------------------------------------------------
+
+3/6 Testing: dhrystone
+3/6 Test: dhrystone
+Command: "/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb" "/home/mwerner/Projekte/sce/test_programs/_build/src/dhrystone"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"dhrystone" start time: Aug 07 14:26 CEST
+Output:
+----------------------------------------------------------
+Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/src/dhrystone'
+Executing commands:
+["source /home/mariowe/setup_pulpino.sh",
+ "/home/mariowe/run_pulpino.py /home/mariowe/dhrystone"]
+<end of output>
+Test time = 180.01 sec
+----------------------------------------------------------
+Test Failed.
+"dhrystone" end time: Aug 07 14:29 CEST
+"dhrystone" time elapsed: 00:03:00
+----------------------------------------------------------
+
+4/6 Testing: indcall
+4/6 Test: indcall
+Command: "/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb" "/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"indcall" start time: Aug 07 14:29 CEST
+Output:
+----------------------------------------------------------
+Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/src/indcall'
+Executing commands:
+["source /home/mariowe/setup_pulpino.sh",
+ "/home/mariowe/run_pulpino.py /home/mariowe/indcall"]
+UART Stdout:
+textA
+textB
+Perf CYCLES:   614
+Perf INSN:     312
+Perf CINSN:    0
+Perf LD_STALL: 28
+Perf JR_STALL: 0
+Perf IMISS:    0
+Perf #LD:      51
+Perf #ST:      36
+Perf #JUMP:    79
+Perf #BRANCH:  28
+Perf #TAKEN:   12
+Perf #RVC:     0
+
+
+<end of output>
+Test time =  11.87 sec
+----------------------------------------------------------
+Test Passed.
+"indcall" end time: Aug 07 14:29 CEST
+"indcall" time elapsed: 00:00:11
+----------------------------------------------------------
+
+5/6 Testing: aes
+5/6 Test: aes
+Command: "/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb" "/home/mwerner/Projekte/sce/test_programs/_build/src/aes"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"aes" start time: Aug 07 14:29 CEST
+Output:
+----------------------------------------------------------
+Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/src/aes'
+Executing commands:
+["source /home/mariowe/setup_pulpino.sh",
+ "/home/mariowe/run_pulpino.py /home/mariowe/aes"]
+UART Stdout:
+txt: 00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff 
+key: 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f 
+---
+enc: 8e a2 b7 ca 51 67 45 bf ea fc 49 90 4b 49 60 89 
+tst: 8e a2 b7 ca 51 67 45 bf ea fc 49 90 4b 49 60 89
+dec: 00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff 
+Perf CYCLES:   88562
+Perf INSN:     48035
+Perf CINSN:    0
+Perf LD_STALL: 5902
+Perf JR_STALL: 0
+Perf IMISS:    0
+Perf #LD:      10104
+Perf #ST:      4543
+Perf #JUMP:    3920
+Perf #BRANCH:  7685
+Perf #TAKEN:   5871
+Perf #RVC:     0
+
+
+<end of output>
+Test time =  23.87 sec
+----------------------------------------------------------
+Test Passed.
+"aes" end time: Aug 07 14:29 CEST
+"aes" time elapsed: 00:00:23
+----------------------------------------------------------
+
+6/6 Testing: coremark
+6/6 Test: coremark
+Command: "/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb" "/home/mwerner/Projekte/sce/test_programs/_build/coremark_v1.0/coremark"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/coremark_v1.0
+"coremark" start time: Aug 07 14:29 CEST
+Output:
+----------------------------------------------------------
+Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/coremark_v1.0/coremark'
+Executing commands:
+["source /home/mariowe/setup_pulpino.sh",
+ "/home/mariowe/run_pulpino.py /home/mariowe/coremark"]
+UART Stdout:
+
+
+<end of output>
+Test time =   4.85 sec
+----------------------------------------------------------
+Test Fail Reason:
+Required regular expression not found.Regex=[Correct operation validated.
+]
+"coremark" end time: Aug 07 14:30 CEST
+"coremark" time elapsed: 00:00:04
+----------------------------------------------------------
+
+End testing: Aug 07 14:30 CEST

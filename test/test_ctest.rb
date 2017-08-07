@@ -221,4 +221,37 @@ class CTestTest < Minitest::Test
     assert_equal "Jul 24 10:46 CEST", parser.data[1][:endtime]
     assert_equal "00:00:00", parser.data[1][:time]
   end
+
+  def test_log_regex_error
+    parser = BuildLogParser::CTestParser.new()
+
+    logtext = IO.read(File.expand_path('../ctest/log_regex_error.log', __FILE__))
+    parser.parseLog(logtext)
+    assert_equal logtext, parser.logtext
+    assert_equal 2, parser.errors
+    assert_equal 6, parser.data.size()
+
+    assert_equal 3, parser.data[2][:nr]
+    assert_equal 6, parser.data[2][:total_nr]
+    assert_equal "dhrystone", parser.data[2][:name]
+    assert_equal ["/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb", "/home/mwerner/Projekte/sce/test_programs/_build/src/dhrystone"], parser.data[2][:command]
+    assert_equal "/home/mwerner/Projekte/sce/test_programs/_build/src", parser.data[2][:directory]
+    assert_equal "Aug 07 14:26 CEST", parser.data[2][:starttime]
+    assert_equal "Uploading Elf '/home/mwerner/Projekte/sce/test_programs/_build/src/dhrystone'\nExecuting commands:\n[\"source /home/mariowe/setup_pulpino.sh\",\n \"/home/mariowe/run_pulpino.py /home/mariowe/dhrystone\"]", parser.data[2][:output]
+    assert_equal 180.01, parser.data[2][:time_sec]
+    assert_equal :failed, parser.data[2][:result]
+    assert_equal "Aug 07 14:29 CEST", parser.data[2][:endtime]
+    assert_equal "00:03:00", parser.data[2][:time]
+
+    assert_equal 6, parser.data[5][:nr]
+    assert_equal 6, parser.data[5][:total_nr]
+    assert_equal "coremark", parser.data[5][:name]
+    assert_equal ["/home/mwerner/Projekte/sce/test_programs/scripts/run_remote.rb", "/home/mwerner/Projekte/sce/test_programs/_build/coremark_v1.0/coremark"], parser.data[5][:command]
+    assert_equal "/home/mwerner/Projekte/sce/test_programs/_build/coremark_v1.0", parser.data[5][:directory]
+    assert_equal "Aug 07 14:29 CEST", parser.data[5][:starttime]
+    assert_equal 4.85, parser.data[5][:time_sec]
+    assert_equal :failed, parser.data[5][:result]
+    assert_equal "Aug 07 14:30 CEST", parser.data[5][:endtime]
+    assert_equal "00:00:04", parser.data[5][:time]
+  end
 end
