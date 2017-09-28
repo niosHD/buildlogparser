@@ -1,0 +1,41 @@
+Start testing: Jul 24 08:41 CEST
+----------------------------------------------------------
+4/6 Testing: indcall
+4/6 Test: indcall
+Command: "/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"indcall" start time: Jul 24 08:41 CEST
+Output:
+----------------------------------------------------------
+textA
+textB
+<end of output>
+Test time =   1.12 sec
+----------------------------------------------------------
+Test Passed.
+"indcall" end time: Jul 24 08:42 CEST
+"indcall" time elapsed: 00:00:01
+----------------------------------------------------------
+
+5/6 Testing: aes
+5/6 Test: aes
+Command: "/home/mwerner/Projekte/sce/test_programs/_build/src/aes"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
+"aes" start time: Jul 24 08:42 CEST
+Output:
+----------------------------------------------------------
+txt: 00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff 
+key: 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f 
+---
+enc: 8e a2 b7 ca 51 67 45 bf ea fc 49 90 4b 49 60 89 
+tst: 8e a2 b7 ca 51 67 45 bf ea fc 49 90 4b 49 60 89
+dec: 00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff 
+<end of output>
+Test time =   2.34 sec
+----------------------------------------------------------
+Test Passed.
+"aes" end time: Jul 24 08:44 CEST
+"aes" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Jul 24 08:41 CEST

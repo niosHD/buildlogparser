@@ -1,0 +1,38 @@
+Start testing: Jul 24 10:46 CEST
+----------------------------------------------------------
+1/20 Testing: RV32IMXIE_CF_endless_loop
+1/20 Test: RV32IMXIE_CF_endless_loop
+Command: "/opt/tmp/install/sce-riscv/bin/spike" "--isa=rv32imxie" "/home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE/RV32IMXIE_CF_endless_loop"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE
+"RV32IMXIE_CF_endless_loop" start time: Jul 24 10:46 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   5.00 sec
+----------------------------------------------------------
+Test Failed.
+"RV32IMXIE_CF_endless_loop" end time: Jul 24 10:46 CEST
+"RV32IMXIE_CF_endless_loop" time elapsed: 00:00:05
+----------------------------------------------------------
+
+3/20 Testing: RV32IMXIE_CF_loop
+3/20 Test: RV32IMXIE_CF_loop
+Command: "/opt/tmp/install/sce-riscv/bin/spike" "--isa=rv32imxie" "/home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE/RV32IMXIE_CF_loop"
+Directory: /home/mwerner/Projekte/sce/test_programs/_build/arch/RV32IMXIE
+"RV32IMXIE_CF_loop" start time: Jul 24 10:46 CEST
+Output:
+----------------------------------------------------------
+
+Plain Instructions     = 5
+Decrypted Instructions = 31
+Absorbed Patch Values  = 8
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"RV32IMXIE_CF_loop" end time: Jul 24 10:46 CEST
+"RV32IMXIE_CF_loop" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 24 10:46 CEST

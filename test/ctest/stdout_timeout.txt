@@ -1,0 +1,49 @@
+Test project /home/mwerner/Projekte/sce/test_programs/_build
+      Start  1: RV32IMXIE_CF_endless_loop
+ 1/20 Test  #1: RV32IMXIE_CF_endless_loop ..........***Timeout   5.00 sec
+      Start  2: RV32IMXIE_CF_bpeq
+ 2/20 Test  #2: RV32IMXIE_CF_bpeq ..................   Passed    0.00 sec
+      Start  3: RV32IMXIE_CF_loop
+ 3/20 Test  #3: RV32IMXIE_CF_loop ..................   Passed    0.12 sec
+      Start  4: RV32IMXIE_CF_bpdeq
+ 4/20 Test  #4: RV32IMXIE_CF_bpdeq .................   Passed    0.00 sec
+      Start  5: RV32IMXIE_CF_indirect_call
+ 5/20 Test  #5: RV32IMXIE_CF_indirect_call .........   Passed    0.00 sec
+      Start  6: RV32IMXIE_CF_memaccess_exception
+ 6/20 Test  #6: RV32IMXIE_CF_memaccess_exception ...   Passed    0.00 sec
+      Start  7: RV32IMXIE_CF_bpne
+ 7/20 Test  #7: RV32IMXIE_CF_bpne ..................   Passed    0.00 sec
+      Start  8: RV32IMXIE_CF_bpgeu
+ 8/20 Test  #8: RV32IMXIE_CF_bpgeu .................   Passed    0.00 sec
+      Start  9: RV32IMXIE_CF_bplt
+ 9/20 Test  #9: RV32IMXIE_CF_bplt ..................   Passed    0.00 sec
+      Start 10: RV32IMXIE_CF_direct_call
+10/20 Test #10: RV32IMXIE_CF_direct_call ...........   Passed    0.00 sec
+      Start 11: RV32IMXIE_CF_bpltu
+11/20 Test #11: RV32IMXIE_CF_bpltu .................   Passed    0.00 sec
+      Start 12: RV32IMXIE_CF_no_cf
+12/20 Test #12: RV32IMXIE_CF_no_cf .................   Passed    0.00 sec
+      Start 13: RV32IMXIE_CF_exception
+13/20 Test #13: RV32IMXIE_CF_exception .............   Passed    0.00 sec
+      Start 14: RV32IMXIE_CF_bpge
+14/20 Test #14: RV32IMXIE_CF_bpge ..................   Passed    0.00 sec
+      Start 15: simpleadd
+15/20 Test #15: simpleadd ..........................   Passed    0.00 sec
+      Start 16: bigen
+16/20 Test #16: bigen ..............................   Passed   89.77 sec
+      Start 17: dhrystone
+17/20 Test #17: dhrystone ..........................   Passed   95.51 sec
+      Start 18: indcall
+18/20 Test #18: indcall ............................   Passed    0.45 sec
+      Start 19: aes
+19/20 Test #19: aes ................................   Passed   12.58 sec
+      Start 20: coremark
+20/20 Test #20: coremark ...........................   Passed  351.01 sec
+
+95% tests passed, 1 tests failed out of 20
+
+Total Test time (real) = 554.50 sec
+
+The following tests FAILED:
+          1 - RV32IMXIE_CF_endless_loop (Timeout)
+Errors while running CTest

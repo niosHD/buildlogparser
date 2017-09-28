@@ -1,0 +1,17 @@
+Test project /home/mwerner/Projekte/sce/test_programs/_build
+    Start 1: simpleadd
+1/6 Test #1: simpleadd ........................   Passed    0.00 sec
+    Start 2: bigen
+2/6 Test #2: bigen ............................   Passed    0.00 sec
+    Start 3: dhrystone
+3/6 Test #3: dhrystone ........................   Passed    0.00 sec
+    Start 4: indcall
+4/6 Test #4: indcall ..........................   Passed    0.00 sec
+    Start 5: aes
+5/6 Test #5: aes ..............................   Passed    0.00 sec
+    Start 6: coremark
+6/6 Test #6: coremark .........................   Passed   14.16 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =  14.17 sec

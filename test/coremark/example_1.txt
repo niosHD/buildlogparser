@@ -1,0 +1,18 @@
+# Source: http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0350a/ar01s05s01.html
+
+2K performance run parameters for coremark.
+CoreMark Size    : 666
+Total ticks      : 3512687483
+Total time (secs): 20.908854
+Iterations/Sec   : 478.266287
+Iterations       : 10000
+Compiler version : ARM C/C++ Compiler, 5.03 [Build 24]
+Compiler flags   : -O3 -Otime --loop_optimization_level=2
+Memory location  : STACK
+seedcrc          : 0xe9f5
+[0]crclist       : 0xe714
+[0]crcmatrix     : 0x1fd7
+[0]crcstate      : 0x8e3a
+[0]crcfinal      : 0x988c
+Correct operation validated. See readme.txt for run and reporting rules.
+CoreMark 1.0 : 478.266287 / ARM C/C++ Compiler, 5.03 [Build 24] -O3 -Otime --loop_optimization_level=2 / STACK

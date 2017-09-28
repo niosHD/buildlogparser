@@ -1,0 +1,26 @@
+/usr/bin/cmake -H/home/mwerner/tmp/test -B/home/mwerner/tmp/test/_build --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/mwerner/tmp/test/_build/CMakeFiles /home/mwerner/tmp/test/_build/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[1]: Entering directory '/home/mwerner/tmp/test/_build'
+make -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+make[2]: Entering directory '/home/mwerner/tmp/test/_build'
+cd /home/mwerner/tmp/test/_build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/mwerner/tmp/test /home/mwerner/tmp/test /home/mwerner/tmp/test/_build /home/mwerner/tmp/test/_build /home/mwerner/tmp/test/_build/CMakeFiles/main.dir/DependInfo.cmake --color=
+Dependee "/home/mwerner/tmp/test/_build/CMakeFiles/main.dir/DependInfo.cmake" is newer than depender "/home/mwerner/tmp/test/_build/CMakeFiles/main.dir/depend.internal".
+Dependee "/home/mwerner/tmp/test/_build/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/home/mwerner/tmp/test/_build/CMakeFiles/main.dir/depend.internal".
+Scanning dependencies of target main
+make[2]: Leaving directory '/home/mwerner/tmp/test/_build'
+make -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+make[2]: Entering directory '/home/mwerner/tmp/test/_build'
+[ 25%] Building C object CMakeFiles/main.dir/foo.c.o
+/usr/lib/ccache/cc     -o CMakeFiles/main.dir/foo.c.o   -c /home/mwerner/tmp/test/foo.c
+[ 50%] Building CXX object CMakeFiles/main.dir/main.cpp.o
+/usr/lib/ccache/c++      -o CMakeFiles/main.dir/main.cpp.o -c /home/mwerner/tmp/test/main.cpp
+[ 75%] Building CXX object CMakeFiles/main.dir/bar.cpp.o
+/usr/lib/ccache/c++      -o CMakeFiles/main.dir/bar.cpp.o -c /home/mwerner/tmp/test/bar.cpp
+[100%] Linking CXX executable main
+/usr/bin/cmake -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=1
+/usr/lib/ccache/c++      CMakeFiles/main.dir/foo.c.o CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/bar.cpp.o  -o main -rdynamic 
+make[2]: Leaving directory '/home/mwerner/tmp/test/_build'
+[100%] Built target main
+make[1]: Leaving directory '/home/mwerner/tmp/test/_build'
+/usr/bin/cmake -E cmake_progress_start /home/mwerner/tmp/test/_build/CMakeFiles 0

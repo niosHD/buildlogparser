@@ -1,0 +1,4 @@
+   text	   data	    bss	    dec	    hex	filename
+   4960	     72	     64	   5096	   13e8	aes
+  12656	     72	     68	  12796	   31fc	bigen
+    952	     72	     64	   1088	    440	indcall
