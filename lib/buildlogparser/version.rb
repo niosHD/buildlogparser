@@ -21,9 +21,9 @@
 module BuildLogParser
   module VERSION #:nodoc:
     MAJOR = 0
-    MINOR = 2
+    MINOR = 3
     PATCH = 0
 
-    STRING = [MAJOR, MINOR, PATCH].join('.')
+    STRING = [MAJOR, MINOR, PATCH, 'dev'].join('.')
   end
 end
