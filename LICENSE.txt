@@ -1,4 +1,4 @@
-Copyright (c) 2017 Mario Werner
+Copyright (c) 2017 Mario Werner <nioshd@gmail.com>
 
 MIT License
 
