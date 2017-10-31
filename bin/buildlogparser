@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+#
+# Copyright (C) 2017 Mario Werner <nioshd@gmail.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of
+# this software and associated documentation files (the "Software"), to deal in
+# the Software without restriction, including without limitation the rights to
+# use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+# the Software, and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+require 'rubygems'
+require 'buildlogparser'
+require 'trollop'
+require 'yaml'
+
+supportedParsers = BuildLogParser::getParserNames
+
+p = Trollop::Parser.new do
+  banner <<-EOS
+Extracts information various log file formats
+
+Usage:
+    #{__FILE__} -t <type> -i <inputfile> [-o <outputfile>]
+where [options] are:
+EOS
+
+  opt :type,       "File type. (supported: #{supportedParsers.join(",")})", :type => String, :short => "-t"
+  opt :inputfile,  "Path to the log file which should be processed.", :type => String, :short => "-i"
+  opt :outputfile, "Output file.", :type => String, :short => "-o"
+end
+opts = {}
+Trollop::with_standard_exception_handling p do
+  opts = p.parse ARGV
+
+  raise Trollop::HelpNeeded unless opts[:type] and opts[:inputfile]
+end
+
+opts[:type] = opts[:type].to_sym
+
+# check if the parameters are valid
+unless supportedParsers.include?(opts[:type]) then
+  STDERR.puts "File type '#{opts[:type]}' is not supported"
+  exit -1
+end
+unless File.exists?(opts[:inputfile]) then
+  STDERR.puts "Inputfile '#{opts[:inputfile]}' does not exist"
+  exit -2
+end
+
+logtext = IO.read(opts[:inputfile])
+
+# load the file into memory and parse it
+parser = BuildLogParser.getParser(opts[:type])
+result = BuildLogParser.parse(opts[:type],parser,logtext)
+
+# save data to the output file
+if opts[:outputfile] then
+  File.open(opts[:outputfile], 'w') {|f| f.write result.to_yaml }
+else
+  puts result.to_yaml
+end
