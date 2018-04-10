@@ -70,7 +70,7 @@ module BuildLogParser
       end
 
       rule(:letters)   { match['[:alnum:]'].repeat(1) }
-      rule(:path)      { match['[:alnum:]0-9=\+\.\-_/'].repeat(1) }
+      rule(:path)      { match['[:alnum:]=\+\.\-_/'].repeat(1) }
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:float)     { integer >> (match['\.,'] >> integer).maybe }
 
