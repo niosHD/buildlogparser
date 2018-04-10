@@ -28,100 +28,111 @@ require 'buildlogparser'
 require 'terminal-table'
 require 'trollop'
 
-def formatRow(hash, columns)
-  result = []
-  columns.each do |key|
-    if hash.key?(key) then
-      result.push(hash[key])
-    else
-      result.push('')
-    end
-  end
-  return result
-end
-
-parsers = BuildLogParser::getParserNames
-
-p = Trollop::Parser.new do
-  banner <<-EOS
-Extracts information various log file formats
+module ApplicationLogic
+  def self.parseComandLine(argv)
+    parsers = BuildLogParser::getParserNames
+    p = Trollop::Parser.new do
+      banner <<-EOS
+Extracts information from various log file formats
 
 Usage:
     #{__FILE__} -t <type> -i <inputfile> [-p <parsermodule>] [-o <outputfile>] [-f <outputformat>]
 where [options] are:
-EOS
+    EOS
 
-  opt :type,         "File type. (supported: #{parsers.join(",")})", :type => String, :required => true, :short => "-t"
-  opt :format,       "Output format. (supported: yaml, csv, clitable [default])", :default => "clitable", :short => "-f"
-  opt :inputfile,    "Path to the log file which should be processed.", :type => String, :required => true, :short => "-i"
-  opt :parsermodule, "Path to ruby file that implements additional parsers.", :type => String, :multi => true, :short => "-p"
-  opt :outputfile,   "Output file.", :type => String, :short => "-o"
-end
-opts = {}
-Trollop::with_standard_exception_handling p do
-  opts = p.parse ARGV
-end
-
-# load additional parser modules
-if opts[:parsermodule] then
-  opts[:parsermodule].each do |path|
-    if File.exists?(path) then
-      path = File.realpath(path).chomp(File.extname(path))
+      opt :type,         "File type. (supported: #{parsers.join(",")})", :type => String, :required => true, :short => "-t"
+      opt :format,       "Output format. (supported: yaml, csv, clitable [default])", :default => "clitable", :short => "-f"
+      opt :inputfile,    "Path to the log file which should be processed.", :type => String, :required => true, :short => "-i"
+      opt :parsermodule, "Path to ruby file or gem name that implements additional parsers.", :type => String, :multi => true, :short => "-p"
+      opt :outputfile,   "Output file.", :type => String, :short => "-o"
     end
-    require path
-  end
-end
-parsers = BuildLogParser::getParserNames
-
-# check if the parameters are valid
-opts[:type] = opts[:type].to_sym
-unless parsers.include?(opts[:type]) then
-  STDERR.puts "File type '#{opts[:type]}' is not supported"
-  exit -1
-end
-unless File.exists?(opts[:inputfile]) then
-  STDERR.puts "Inputfile '#{opts[:inputfile]}' does not exist"
-  exit -2
-end
-opts[:format] = opts[:format].to_sym
-unless [:yaml, :csv, :clitable].include?(opts[:format]) then
-  STDERR.puts "Output format '#{opts[:format]}' is not supported"
-  exit -3
-end
-
-# load the file into memory and parse it
-logtext = IO.read(opts[:inputfile])
-parser = BuildLogParser.getParser(opts[:type])
-result = BuildLogParser.parse(opts[:type],parser,logtext)
-
-# extract columns from result for table based formats
-columns = []
-result.each do |line|
-  columns |= line.keys
-end
-
-# format the result data
-if opts[:format] == :yaml then
-  result = result.to_yaml
-elsif opts[:format] == :csv then
-  result = CSV.generate do |csv|
-    csv << columns
-    result.each do |hash|
-      csv << formatRow(hash, columns)
+    opts = {}
+    Trollop::with_standard_exception_handling p do
+      opts = p.parse argv
     end
+
+    # load additional parser modules
+    if opts[:parsermodule] then
+      opts[:parsermodule].each do |path|
+        if File.exists?(path) then
+          path = File.realpath(path).chomp(File.extname(path))
+        end
+        require path
+      end
+    end
+    parsers = BuildLogParser::getParserNames
+
+    # check if the parameters are valid
+    opts[:format] = opts[:format].to_sym
+    opts[:type] = opts[:type].to_sym
+    unless [:yaml, :csv, :clitable].include?(opts[:format]) then
+      raise ArgumentError, "Output format '#{opts[:format]}' is not supported"
+    end
+    unless parsers.include?(opts[:type]) then
+      raise ArgumentError, "File type '#{opts[:type]}' is not supported"
+    end
+    unless File.exists?(opts[:inputfile]) then
+      raise ArgumentError, "Inputfile '#{opts[:inputfile]}' does not exist"
+    end
+    return opts
   end
-elsif opts[:format] == :clitable then
-  table = Terminal::Table.new
-  table.headings = columns
-  result.each do |hash|
-    table.add_row(formatRow(hash, columns))
+
+  def self.formatRow(hash, columns)
+    result = []
+    columns.each do |key|
+      if hash.key?(key) then
+        result.push(hash[key])
+      else
+        result.push('')
+      end
+    end
+    return result
   end
-  result = table.to_s
+
+  def self.formatResult(result, format)
+    # extract columns from result for table based formats
+    columns = []
+    result.each do |line|
+      columns |= line.keys
+    end
+
+    # format the result data
+    if format == :yaml then
+      result = result.to_yaml
+    elsif format == :csv then
+      result = CSV.generate do |csv|
+        csv << columns
+        result.each do |hash|
+          csv << formatRow(hash, columns)
+        end
+      end
+    elsif format == :clitable then
+      table = Terminal::Table.new
+      table.headings = columns
+      result.each do |hash|
+        table.add_row(formatRow(hash, columns))
+      end
+      result = table.to_s
+    else
+      raise ArgumentError, "Output format '#{format}' is not supported"
+    end
+    return result
+  end
 end
 
-# save data to the output file
-if opts[:outputfile] then
-  File.open(opts[:outputfile], 'w') {|f| f.write result }
-else
-  puts result
+if $0 == __FILE__ then
+  opts = ApplicationLogic.parseComandLine(ARGV)
+
+  # load the file into memory and parse it
+  logtext = IO.read(opts[:inputfile])
+  parser = BuildLogParser.getParser(opts[:type])
+  result = BuildLogParser.parse(opts[:type],parser,logtext)
+
+  # save data to the output file
+  result = ApplicationLogic.formatResult(result, opts[:format])
+  if opts[:outputfile] then
+    File.open(opts[:outputfile], 'w') {|f| f.write result }
+  else
+    puts result
+  end
 end
