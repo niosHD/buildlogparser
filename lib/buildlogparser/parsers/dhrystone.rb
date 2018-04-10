@@ -78,5 +78,7 @@ module BuildLogParser
       tree = parser.parse(logtext)
       @data = Dhrystone::Transform.new.apply(tree)
     end
-  end # class CMakeParser
+  end # class DhrystoneParser
+
+  registerParser(:dhrystone, DhrystoneParser, :parse)
 end # module BuildLogParser

@@ -74,4 +74,6 @@ module BuildLogParser
       @data = SizeBerkeleyStdout::Transform.new.apply(tree)
     end
   end # class SizeParser
+
+  registerParser(:sizeBerkeleyStdout, SizeParser, :parseBerkeleyStdout)
 end # module BuildLogParser

@@ -138,6 +138,7 @@ module BuildLogParser
       @data.each do |event|
         @errors += 1 unless event[:result] == :passed
       end
+      return @data
     end
 
     def parseLog(logtext)
@@ -150,6 +151,10 @@ module BuildLogParser
       @data.each do |event|
         @errors += 1 unless event[:result] == :passed
       end
+      return @data
     end
   end # class CTestParser
+
+  registerParser(:ctestStdout, CTestParser, :parseStdout)
+  registerParser(:ctestLog, CTestParser, :parseLog)
 end # module BuildLogParser

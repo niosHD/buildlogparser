@@ -19,12 +19,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 module BuildLogParser
-  @@parsers = { cmakeMakefileStdout: [CMakeParser,     :parseMakefileStdout],
-                coremark:            [CoremarkParser,  :parse],
-                ctestStdout:         [CTestParser,     :parseStdout],
-                ctestLog:            [CTestParser,     :parseLog],
-                dhrystone:           [DhrystoneParser, :parse],
-                sizeBerkeleyStdout:  [SizeParser,      :parseBerkeleyStdout]}
+  @@parsers = {}
 
   def self.getParserNames
     return @@parsers.keys

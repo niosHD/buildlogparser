@@ -97,4 +97,6 @@ module BuildLogParser
       @targets = CMakeMakefileStdout::Transform.new.apply(tree)
     end
   end # class CMakeParser
+
+  registerParser(:cmakeMakefileStdout, CMakeParser, :parseMakefileStdout)
 end # module BuildLogParser

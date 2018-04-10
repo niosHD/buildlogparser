@@ -18,12 +18,12 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
+require_relative "buildlogparser/registry"
+require_relative "buildlogparser/version"
+
 require_relative "buildlogparser/parser"
 require_relative "buildlogparser/parsers/cmake"
 require_relative "buildlogparser/parsers/coremark"
 require_relative "buildlogparser/parsers/ctest"
 require_relative "buildlogparser/parsers/dhrystone"
 require_relative "buildlogparser/parsers/size"
-
-require_relative "buildlogparser/registry"
-require_relative "buildlogparser/version"
