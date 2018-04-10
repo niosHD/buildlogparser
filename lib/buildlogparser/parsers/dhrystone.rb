@@ -68,7 +68,7 @@ module BuildLogParser
 
     def reset()
       super()
-       @data = []
+      @data = []
     end
 
     def parse(logtext)

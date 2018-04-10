@@ -30,6 +30,10 @@ module BuildLogParser
     return @@parsers.keys
   end
 
+  def self.registerParser(parser_name, parser_class, method)
+    @@parsers[parser_name] = [parser_class, method]
+  end
+
   def self.getParser(parser_name)
     return nil unless @@parsers.key?(parser_name)
     return @@parsers[parser_name][0].new

@@ -86,7 +86,7 @@ module BuildLogParser
 
     def reset()
       super()
-       @targets = []
+      @targets = []
     end
 
     def parseMakefileStdout(logtext)

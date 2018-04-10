@@ -20,37 +20,62 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-require 'rubygems'
-require 'buildlogparser'
-require 'trollop'
+require 'csv'
 require 'yaml'
 
-supportedParsers = BuildLogParser::getParserNames
+require 'rubygems'
+require 'buildlogparser'
+require 'terminal-table'
+require 'trollop'
+
+def formatRow(hash, columns)
+  result = []
+  columns.each do |key|
+    if hash.key?(key) then
+      result.push(hash[key])
+    else
+      result.push('')
+    end
+  end
+  return result
+end
+
+parsers = BuildLogParser::getParserNames
 
 p = Trollop::Parser.new do
   banner <<-EOS
 Extracts information various log file formats
 
 Usage:
-    #{__FILE__} -t <type> -i <inputfile> [-o <outputfile>]
+    #{__FILE__} -t <type> -i <inputfile> [-p <parsermodule>] [-o <outputfile>] [-f <outputformat>]
 where [options] are:
 EOS
 
-  opt :type,       "File type. (supported: #{supportedParsers.join(",")})", :type => String, :short => "-t"
-  opt :inputfile,  "Path to the log file which should be processed.", :type => String, :short => "-i"
-  opt :outputfile, "Output file.", :type => String, :short => "-o"
+  opt :type,         "File type. (supported: #{parsers.join(",")})", :type => String, :required => true, :short => "-t"
+  opt :format,       "Output format. (supported: yaml, csv, clitable [default])", :default => "clitable", :short => "-f"
+  opt :inputfile,    "Path to the log file which should be processed.", :type => String, :required => true, :short => "-i"
+  opt :parsermodule, "Path to ruby file that implements additional parsers.", :type => String, :multi => true, :short => "-p"
+  opt :outputfile,   "Output file.", :type => String, :short => "-o"
 end
 opts = {}
 Trollop::with_standard_exception_handling p do
   opts = p.parse ARGV
-
-  raise Trollop::HelpNeeded unless opts[:type] and opts[:inputfile]
 end
 
-opts[:type] = opts[:type].to_sym
+# load additional parser modules
+if opts[:parsermodule] then
+  opts[:parsermodule].each do |path|
+    if File.exists?(path) then
+      path = File.realpath(path).chomp(File.extname(path))
+    end
+    require path
+  end
+end
+parsers = BuildLogParser::getParserNames
 
 # check if the parameters are valid
-unless supportedParsers.include?(opts[:type]) then
+opts[:type] = opts[:type].to_sym
+unless parsers.include?(opts[:type]) then
   STDERR.puts "File type '#{opts[:type]}' is not supported"
   exit -1
 end
@@ -58,16 +83,45 @@ unless File.exists?(opts[:inputfile]) then
   STDERR.puts "Inputfile '#{opts[:inputfile]}' does not exist"
   exit -2
 end
-
-logtext = IO.read(opts[:inputfile])
+opts[:format] = opts[:format].to_sym
+unless [:yaml, :csv, :clitable].include?(opts[:format]) then
+  STDERR.puts "Output format '#{opts[:format]}' is not supported"
+  exit -3
+end
 
 # load the file into memory and parse it
+logtext = IO.read(opts[:inputfile])
 parser = BuildLogParser.getParser(opts[:type])
 result = BuildLogParser.parse(opts[:type],parser,logtext)
 
+# extract columns from result for table based formats
+columns = []
+result.each do |line|
+  columns |= line.keys
+end
+
+# format the result data
+if opts[:format] == :yaml then
+  result = result.to_yaml
+elsif opts[:format] == :csv then
+  result = CSV.generate do |csv|
+    csv << columns
+    result.each do |hash|
+      csv << formatRow(hash, columns)
+    end
+  end
+elsif opts[:format] == :clitable then
+  table = Terminal::Table.new
+  table.headings = columns
+  result.each do |hash|
+    table.add_row(formatRow(hash, columns))
+  end
+  result = table.to_s
+end
+
 # save data to the output file
 if opts[:outputfile] then
-  File.open(opts[:outputfile], 'w') {|f| f.write result.to_yaml }
+  File.open(opts[:outputfile], 'w') {|f| f.write result }
 else
-  puts result.to_yaml
+  puts result
 end
