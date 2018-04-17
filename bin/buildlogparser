@@ -31,20 +31,21 @@ require 'trollop'
 module ApplicationLogic
   def self.parseComandLine(argv)
     parsers = BuildLogParser::getParserNames
+    formats = [:yaml, :csv, :table]
     p = Trollop::Parser.new do
       banner <<-EOS
-Extracts information from various log file formats
+Extracts information from various log file formats.
 
 Usage:
-    #{__FILE__} -t <type> -i <inputfile> [-p <parsermodule>] [-o <outputfile>] [-f <outputformat>]
+    #{__FILE__} -t <type> -i <inputfile> [-f <outputformat>] [-p <parsermodule>] [-o <outputfile>]
 where [options] are:
-    EOS
+      EOS
 
       opt :type,         "File type. (supported: #{parsers.join(",")})", :type => String, :required => true, :short => "-t"
-      opt :format,       "Output format. (supported: yaml, csv, clitable [default])", :default => "clitable", :short => "-f"
       opt :inputfile,    "Path to the log file which should be processed.", :type => String, :required => true, :short => "-i"
-      opt :parsermodule, "Path to ruby file or gem name that implements additional parsers.", :type => String, :multi => true, :short => "-p"
+      opt :format,       "Output format. (default: #{formats[0]}, supported: #{formats.join(",")}", :default => formats[0].to_s, :short => "-f"
       opt :outputfile,   "Output file.", :type => String, :short => "-o"
+      opt :parsermodule, "Path to ruby file or gem name that implements additional parsers.", :type => String, :multi => true, :short => "-p"
     end
     opts = {}
     Trollop::with_standard_exception_handling p do
@@ -65,7 +66,7 @@ where [options] are:
     # check if the parameters are valid
     opts[:format] = opts[:format].to_sym
     opts[:type] = opts[:type].to_sym
-    unless [:yaml, :csv, :clitable].include?(opts[:format]) then
+    unless formats.include?(opts[:format]) then
       raise ArgumentError, "Output format '#{opts[:format]}' is not supported"
     end
     unless parsers.include?(opts[:type]) then
@@ -106,7 +107,7 @@ where [options] are:
           csv << formatRow(hash, columns)
         end
       end
-    elsif format == :clitable then
+    elsif format == :table then
       table = Terminal::Table.new
       table.headings = columns
       result.each do |hash|
