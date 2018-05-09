@@ -70,7 +70,7 @@ module BuildLogParser
       end
 
       rule(:letters)   { match['[:alnum:]'].repeat(1) }
-      rule(:path)      { match['[:alnum:]0-9=\+\.\-_/'].repeat(1) }
+      rule(:path)      { match['[:alnum:]=\+\.\-_/'].repeat(1) }
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:float)     { integer >> (match['\.,'] >> integer).maybe }
 
@@ -138,6 +138,7 @@ module BuildLogParser
       @data.each do |event|
         @errors += 1 unless event[:result] == :passed
       end
+      return @data
     end
 
     def parseLog(logtext)
@@ -150,6 +151,10 @@ module BuildLogParser
       @data.each do |event|
         @errors += 1 unless event[:result] == :passed
       end
+      return @data
     end
   end # class CTestParser
+
+  registerParser(:ctestStdout, CTestParser, :parseStdout)
+  registerParser(:ctestLog, CTestParser, :parseLog)
 end # module BuildLogParser

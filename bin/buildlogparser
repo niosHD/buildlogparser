@@ -1,0 +1,139 @@
+#!/usr/bin/env ruby
+#
+# Copyright (C) 2017-2018 Mario Werner <nioshd@gmail.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of
+# this software and associated documentation files (the "Software"), to deal in
+# the Software without restriction, including without limitation the rights to
+# use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+# the Software, and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+require 'csv'
+require 'yaml'
+
+require 'rubygems'
+require 'buildlogparser'
+require 'terminal-table'
+require 'trollop'
+
+module ApplicationLogic
+  def self.parseComandLine(argv)
+    parsers = BuildLogParser::getParserNames
+    formats = [:yaml, :csv, :table]
+    p = Trollop::Parser.new do
+      banner <<-EOS
+Extracts information from various log file formats.
+
+Usage:
+    #{__FILE__} -t <type> -i <inputfile> [-f <outputformat>] [-p <parsermodule>] [-o <outputfile>]
+where [options] are:
+      EOS
+
+      opt :type,         "File type. (supported: #{parsers.join(",")})", :type => String, :required => true, :short => "-t"
+      opt :inputfile,    "Path to the log file which should be processed.", :type => String, :required => true, :short => "-i"
+      opt :format,       "Output format. (default: #{formats[0]}, supported: #{formats.join(",")}", :default => formats[0].to_s, :short => "-f"
+      opt :outputfile,   "Output file.", :type => String, :short => "-o"
+      opt :parsermodule, "Path to ruby file or gem name that implements additional parsers.", :type => String, :multi => true, :short => "-p"
+    end
+    opts = {}
+    Trollop::with_standard_exception_handling p do
+      opts = p.parse argv
+    end
+
+    # load additional parser modules
+    if opts[:parsermodule] then
+      opts[:parsermodule].each do |path|
+        if File.exists?(path) then
+          path = File.realpath(path).chomp(File.extname(path))
+        end
+        require path
+      end
+    end
+    parsers = BuildLogParser::getParserNames
+
+    # check if the parameters are valid
+    opts[:format] = opts[:format].to_sym
+    opts[:type] = opts[:type].to_sym
+    unless formats.include?(opts[:format]) then
+      raise ArgumentError, "Output format '#{opts[:format]}' is not supported"
+    end
+    unless parsers.include?(opts[:type]) then
+      raise ArgumentError, "File type '#{opts[:type]}' is not supported"
+    end
+    unless File.exists?(opts[:inputfile]) then
+      raise ArgumentError, "Inputfile '#{opts[:inputfile]}' does not exist"
+    end
+    return opts
+  end
+
+  def self.formatRow(hash, columns)
+    result = []
+    columns.each do |key|
+      if hash.key?(key) then
+        result.push(hash[key])
+      else
+        result.push('')
+      end
+    end
+    return result
+  end
+
+  def self.formatResult(result, format)
+    # extract columns from result for table based formats
+    columns = []
+    result.each do |line|
+      columns |= line.keys
+    end
+
+    # format the result data
+    if format == :yaml then
+      result = result.to_yaml
+    elsif format == :csv then
+      result = CSV.generate do |csv|
+        csv << columns
+        result.each do |hash|
+          csv << formatRow(hash, columns)
+        end
+      end
+    elsif format == :table then
+      table = Terminal::Table.new
+      table.headings = columns
+      result.each do |hash|
+        table.add_row(formatRow(hash, columns))
+      end
+      result = table.to_s
+    else
+      raise ArgumentError, "Output format '#{format}' is not supported"
+    end
+    return result
+  end
+end
+
+if $0 == __FILE__ then
+  opts = ApplicationLogic.parseComandLine(ARGV)
+
+  # load the file into memory and parse it
+  logtext = IO.read(opts[:inputfile])
+  parser = BuildLogParser.getParser(opts[:type])
+  result = BuildLogParser.parse(opts[:type],parser,logtext)
+
+  # save data to the output file
+  result = ApplicationLogic.formatResult(result, opts[:format])
+  if opts[:outputfile] then
+    File.open(opts[:outputfile], 'w') {|f| f.write result }
+  else
+    puts result
+  end
+end

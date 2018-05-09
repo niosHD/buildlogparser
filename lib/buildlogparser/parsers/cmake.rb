@@ -29,7 +29,7 @@ module BuildLogParser
       rule(:newline)   { str("\r").maybe >> str("\n") }
       rule(:restofline){ ( newline.absent? >> any ).repeat }
 
-      rule(:path)      { match['[:alnum:]0-9=\+\.\-_/'].repeat(1) }
+      rule(:path)      { match['[:alnum:]=\+\.\-_/'].repeat(1) }
       rule(:integer)   { match['0-9'].repeat(1) }
 
       rule(:percentage) { str("[") >> space? >> integer.as(:percentage) >> str("%]") }
@@ -86,7 +86,7 @@ module BuildLogParser
 
     def reset()
       super()
-       @targets = []
+      @targets = []
     end
 
     def parseMakefileStdout(logtext)
@@ -97,4 +97,6 @@ module BuildLogParser
       @targets = CMakeMakefileStdout::Transform.new.apply(tree)
     end
   end # class CMakeParser
+
+  registerParser(:cmakeMakefileStdout, CMakeParser, :parseMakefileStdout)
 end # module BuildLogParser

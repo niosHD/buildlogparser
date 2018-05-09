@@ -29,7 +29,7 @@ module BuildLogParser
       rule(:newline)   { str("\r").maybe >> str("\n") }
       rule(:restofline){ ( newline.absent? >> any ).repeat }
 
-      rule(:path)      { match['[:alnum:]0-9=\+\.\-_/'].repeat(1) }
+      rule(:path)      { match['[:alnum:]=\+\.\-_/'].repeat(1) }
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:float)     { integer >> (match['\.,'] >> integer).maybe }
 
@@ -68,7 +68,7 @@ module BuildLogParser
 
     def reset()
       super()
-       @data = []
+      @data = []
     end
 
     def parse(logtext)
@@ -78,5 +78,7 @@ module BuildLogParser
       tree = parser.parse(logtext)
       @data = Dhrystone::Transform.new.apply(tree)
     end
-  end # class CMakeParser
+  end # class DhrystoneParser
+
+  registerParser(:dhrystone, DhrystoneParser, :parse)
 end # module BuildLogParser
