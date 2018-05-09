@@ -8,6 +8,7 @@
   - ... formats the results either as *yaml* (default), *csv*, or ASCII *table*.
   - ... writes the results to stdout or to an output file.
   - ... can load and use external parsers that register themselves via the registry.
+* Added support for parsing *lld* generated map files.
 * Removed redundant entries from the path match rules of the bundled parsers.
 
 ## v0.2.0 (28.10.2017)
