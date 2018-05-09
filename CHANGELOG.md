@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.3.0 (in development)
+## v0.3.0 (09.05.2018)
 
 * Added a registry which maps string names to parser functions.
 * Added a simple command line tool named *buildlogparser* that ...
