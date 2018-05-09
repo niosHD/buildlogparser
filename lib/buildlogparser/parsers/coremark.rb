@@ -71,5 +71,7 @@ module BuildLogParser
       tree = parser.parse(logtext)
       @data = Coremark::Transform.new.apply(tree)
     end
-  end # class CMakeParser
+  end # class CoremarkParser
+
+  registerParser(:coremark, CoremarkParser, :parse)
 end # module BuildLogParser

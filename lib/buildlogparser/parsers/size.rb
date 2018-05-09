@@ -29,7 +29,7 @@ module BuildLogParser
       rule(:newline)   { str("\r").maybe >> str("\n") }
       rule(:restofline){ ( newline.absent? >> any ).repeat }
 
-      rule(:path)      { match['[:alnum:]0-9=\+\.\-_/'].repeat(1) }
+      rule(:path)      { match['[:alnum:]=\+\.\-_/'].repeat(1) }
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:hexnumber) { match['a-fA-F0-9'].repeat(1) }
 
@@ -74,4 +74,6 @@ module BuildLogParser
       @data = SizeBerkeleyStdout::Transform.new.apply(tree)
     end
   end # class SizeParser
+
+  registerParser(:sizeBerkeleyStdout, SizeParser, :parseBerkeleyStdout)
 end # module BuildLogParser

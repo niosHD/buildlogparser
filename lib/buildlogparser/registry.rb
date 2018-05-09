@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017-2018 Mario Werner <nioshd@gmail.com>
+# Copyright (C) 2017 Mario Werner <nioshd@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -18,13 +18,24 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
-require_relative "buildlogparser/registry"
-require_relative "buildlogparser/version"
+module BuildLogParser
+  @@parsers = {}
 
-require_relative "buildlogparser/parser"
-require_relative "buildlogparser/parsers/cmake"
-require_relative "buildlogparser/parsers/coremark"
-require_relative "buildlogparser/parsers/ctest"
-require_relative "buildlogparser/parsers/dhrystone"
-require_relative "buildlogparser/parsers/lld"
-require_relative "buildlogparser/parsers/size"
+  def self.getParserNames
+    return @@parsers.keys
+  end
+
+  def self.registerParser(parser_name, parser_class, method)
+    @@parsers[parser_name] = [parser_class, method]
+  end
+
+  def self.getParser(parser_name)
+    return nil unless @@parsers.key?(parser_name)
+    return @@parsers[parser_name][0].new
+  end
+
+  def self.parse(parser_name, parser_obj, logtext)
+    return nil unless @@parsers.key?(parser_name)
+    return parser_obj.public_send(@@parsers[parser_name][1],logtext)
+  end
+end # module BuildLogParser

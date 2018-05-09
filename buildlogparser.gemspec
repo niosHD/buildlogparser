@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "buildlogparser"
   spec.version       = BuildLogParser::VERSION::STRING
   spec.authors       = ["Mario Werner"]
-  spec.email         = ["mario.werner@iaik.tugraz.at"]
+  spec.email         = ["nioshd@gmail.com"]
   spec.summary       = "Collection of various parsers for the extraction of information from build and execution logs."
   spec.homepage      = "https://github.com/niosHD/buildlogparser"
   spec.license       = "MIT"
@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.5"
   spec.add_development_dependency "simplecov", "~> 0.14"
   spec.add_runtime_dependency "parslet", "~> 1.8"
+  spec.add_runtime_dependency "trollop", "~> 2.1"
+  spec.add_runtime_dependency "terminal-table", "~> 1.8"
 end

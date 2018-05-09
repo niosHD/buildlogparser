@@ -1,0 +1,550 @@
+---
+- :address: 2097776
+  :size: 28
+  :align: 1
+  :out: ".interp"
+  :inputs:
+  - :address: 2097776
+    :size: 28
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".interp"
+    :symbols: []
+- :address: 2097804
+  :size: 32
+  :align: 4
+  :out: ".note.ABI-tag"
+  :inputs:
+  - :address: 2097804
+    :size: 32
+    :align: 4
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o"
+    :source_section: ".note.ABI-tag"
+    :symbols: []
+- :address: 2097836
+  :size: 17
+  :align: 4
+  :out: ".rodata"
+  :inputs:
+  - :address: 2097836
+    :size: 4
+    :align: 4
+    :source_file: "<internal>"
+    :source_section: ".rodata"
+    :symbols: []
+  - :address: 2097840
+    :size: 13
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".rodata"
+    :symbols: []
+- :address: 2097856
+  :size: 168
+  :align: 8
+  :out: ".dynsym"
+  :inputs:
+  - :address: 2097856
+    :size: 168
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".dynsym"
+    :symbols: []
+- :address: 2098024
+  :size: 14
+  :align: 2
+  :out: ".gnu.version"
+  :inputs:
+  - :address: 2098024
+    :size: 14
+    :align: 2
+    :source_file: "<internal>"
+    :source_section: ".gnu.version"
+    :symbols: []
+- :address: 2098040
+  :size: 32
+  :align: 4
+  :out: ".gnu.version_r"
+  :inputs:
+  - :address: 2098040
+    :size: 32
+    :align: 4
+    :source_file: "<internal>"
+    :source_section: ".gnu.version_r"
+    :symbols: []
+- :address: 2098072
+  :size: 36
+  :align: 8
+  :out: ".gnu.hash"
+  :inputs:
+  - :address: 2098072
+    :size: 36
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".gnu.hash"
+    :symbols: []
+- :address: 2098108
+  :size: 149
+  :align: 1
+  :out: ".dynstr"
+  :inputs:
+  - :address: 2098108
+    :size: 149
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".dynstr"
+    :symbols: []
+- :address: 2098264
+  :size: 24
+  :align: 8
+  :out: ".rela.dyn"
+  :inputs:
+  - :address: 2098264
+    :size: 24
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".rela.dyn"
+    :symbols: []
+- :address: 2098288
+  :size: 72
+  :align: 8
+  :out: ".rela.plt"
+  :inputs:
+  - :address: 2098288
+    :size: 72
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".rela.plt"
+    :symbols: []
+- :address: 2098360
+  :size: 44
+  :align: 1
+  :out: ".eh_frame_hdr"
+  :inputs:
+  - :address: 2098360
+    :size: 44
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".eh_frame_hdr"
+    :symbols: []
+- :address: 2098408
+  :size: 200
+  :align: 8
+  :out: ".eh_frame"
+  :inputs:
+  - :address: 2098408
+    :size: 200
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".eh_frame"
+    :symbols: []
+- :address: 2101248
+  :size: 434
+  :align: 16
+  :out: ".text"
+  :inputs:
+  - :address: 2101248
+    :size: 42
+    :align: 16
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o"
+    :source_section: ".text"
+    :symbols:
+    - :address: 2101248
+      :size: 42
+      :align: 0
+      :name: _start
+  - :address: 2101290
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o"
+    :source_section: ".text"
+    :symbols: []
+  - :address: 2101296
+    :size: 198
+    :align: 16
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".text"
+    :symbols:
+    - :address: 2101296
+      :size: 0
+      :align: 0
+      :name: deregister_tm_clones
+    - :address: 2101360
+      :size: 0
+      :align: 0
+      :name: register_tm_clones
+    - :address: 2101424
+      :size: 0
+      :align: 0
+      :name: __do_global_dtors_aux
+    - :address: 2101456
+      :size: 0
+      :align: 0
+      :name: frame_dummy
+  - :address: 2101494
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".text.unlikely"
+    :symbols: []
+  - :address: 2101504
+    :size: 53
+    :align: 16
+    :source_file: "/tmp/main-5ae820.o"
+    :source_section: ".text"
+    :symbols:
+    - :address: 2101504
+      :size: 53
+      :align: 0
+      :name: main
+  - :address: 2101568
+    :size: 114
+    :align: 16
+    :source_file: "/usr/lib/x86_64-linux-gnu/libc_nonshared.a"
+    :source_sub_file: elf-init.oS
+    :source_section: ".text"
+    :symbols:
+    - :address: 2101568
+      :size: 101
+      :align: 0
+      :name: __libc_csu_init
+    - :address: 2101680
+      :size: 2
+      :align: 0
+      :name: __libc_csu_fini
+  - :address: 2101682
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/x86_64-linux-gnu/libc_nonshared.a"
+    :source_sub_file: elf-init.oS
+    :source_section: ".text.unlikely"
+    :symbols: []
+  - :address: 2101682
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o"
+    :source_section: ".text"
+    :symbols: []
+  - :address: 2101682
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o"
+    :source_section: ".text"
+    :symbols: []
+- :address: 2101684
+  :size: 26
+  :align: 4
+  :out: ".init"
+  :inputs:
+  - :address: 2101684
+    :size: 21
+    :align: 4
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o"
+    :source_section: ".init"
+    :symbols:
+    - :address: 2101684
+      :size: 0
+      :align: 0
+      :name: _init
+  - :address: 2101705
+    :size: 5
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o"
+    :source_section: ".init"
+    :symbols: []
+- :address: 2101712
+  :size: 9
+  :align: 4
+  :out: ".fini"
+  :inputs:
+  - :address: 2101712
+    :size: 4
+    :align: 4
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o"
+    :source_section: ".fini"
+    :symbols:
+    - :address: 2101712
+      :size: 0
+      :align: 0
+      :name: _fini
+  - :address: 2101716
+    :size: 5
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o"
+    :source_section: ".fini"
+    :symbols: []
+- :address: 2101728
+  :size: 64
+  :align: 16
+  :out: ".plt"
+  :inputs:
+  - :address: 2101728
+    :size: 64
+    :align: 16
+    :source_file: "<internal>"
+    :source_section: ".plt"
+    :symbols:
+    - :address: 2101744
+      :size: 458
+      :align: 0
+      :name: __libc_start_main
+    - :address: 2101776
+      :size: 456
+      :align: 0
+      :name: puts
+- :address: 2105344
+  :size: 16
+  :align: 8
+  :out: ".data"
+  :inputs:
+  - :address: 2105344
+    :size: 4
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o"
+    :source_section: ".data"
+    :symbols:
+    - :address: 2105344
+      :size: 0
+      :align: 0
+      :name: data_start
+    - :address: 2105344
+      :size: 0
+      :align: 0
+      :name: __data_start
+  - :address: 2105348
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o"
+    :source_section: ".data"
+    :symbols: []
+  - :address: 2105352
+    :size: 8
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".data"
+    :symbols:
+    - :address: 2105352
+      :size: 0
+      :align: 0
+      :name: __dso_handle
+  - :address: 2105360
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/x86_64-linux-gnu/libc_nonshared.a"
+    :source_sub_file: elf-init.oS
+    :source_section: ".data"
+    :symbols: []
+  - :address: 2105360
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o"
+    :source_section: ".data"
+    :symbols: []
+  - :address: 2105360
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o"
+    :source_section: ".data"
+    :symbols: []
+- :address: 2105360
+  :size: 0
+  :align: 8
+  :out: ".tm_clone_table"
+  :inputs:
+  - :address: 2105360
+    :size: 0
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".tm_clone_table"
+    :symbols:
+    - :address: 2105360
+      :size: 0
+      :align: 0
+      :name: __TMC_LIST__
+  - :address: 2105360
+    :size: 0
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o"
+    :source_section: ".tm_clone_table"
+    :symbols:
+    - :address: 2105360
+      :size: 0
+      :align: 0
+      :name: __TMC_END__
+- :address: 2105360
+  :size: 48
+  :align: 8
+  :out: ".got.plt"
+  :inputs:
+  - :address: 2105360
+    :size: 48
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".got.plt"
+    :symbols: []
+- :address: 2109440
+  :size: 8
+  :align: 8
+  :out: ".jcr"
+  :inputs:
+  - :address: 2109440
+    :size: 0
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".jcr"
+    :symbols:
+    - :address: 2109440
+      :size: 0
+      :align: 0
+      :name: __JCR_LIST__
+  - :address: 2109440
+    :size: 8
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o"
+    :source_section: ".jcr"
+    :symbols:
+    - :address: 2109440
+      :size: 0
+      :align: 0
+      :name: __JCR_END__
+- :address: 2109448
+  :size: 8
+  :align: 8
+  :out: ".fini_array"
+  :inputs:
+  - :address: 2109448
+    :size: 8
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".fini_array"
+    :symbols:
+    - :address: 2109448
+      :size: 0
+      :align: 0
+      :name: __do_global_dtors_aux_fini_array_entry
+- :address: 2109456
+  :size: 8
+  :align: 8
+  :out: ".init_array"
+  :inputs:
+  - :address: 2109456
+    :size: 8
+    :align: 8
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".init_array"
+    :symbols:
+    - :address: 2109456
+      :size: 0
+      :align: 0
+      :name: __frame_dummy_init_array_entry
+- :address: 2109464
+  :size: 400
+  :align: 8
+  :out: ".dynamic"
+  :inputs:
+  - :address: 2109464
+    :size: 400
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".dynamic"
+    :symbols: []
+- :address: 2109864
+  :size: 8
+  :align: 8
+  :out: ".got"
+  :inputs:
+  - :address: 2109864
+    :size: 8
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".got"
+    :symbols: []
+- :address: 2113536
+  :size: 1
+  :align: 1
+  :out: ".bss"
+  :inputs:
+  - :address: 2113536
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crt1.o"
+    :source_section: ".bss"
+    :symbols: []
+  - :address: 2113536
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crti.o"
+    :source_section: ".bss"
+    :symbols: []
+  - :address: 2113536
+    :size: 1
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtbegin.o"
+    :source_section: ".bss"
+    :symbols:
+    - :address: 2113536
+      :size: 1
+      :align: 0
+      :name: completed.7594
+  - :address: 2113537
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/x86_64-linux-gnu/libc_nonshared.a"
+    :source_sub_file: elf-init.oS
+    :source_section: ".bss"
+    :symbols: []
+  - :address: 2113537
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/crtend.o"
+    :source_section: ".bss"
+    :symbols: []
+  - :address: 2113537
+    :size: 0
+    :align: 1
+    :source_file: "/usr/lib/gcc/x86_64-linux-gnu/5.4.0/../../../x86_64-linux-gnu/crtn.o"
+    :source_section: ".bss"
+    :symbols: []
+- :address: 0
+  :size: 307
+  :align: 1
+  :out: ".comment"
+  :inputs:
+  - :address: 0
+    :size: 307
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".comment"
+    :symbols: []
+- :address: 0
+  :size: 792
+  :align: 8
+  :out: ".symtab"
+  :inputs:
+  - :address: 0
+    :size: 792
+    :align: 8
+    :source_file: "<internal>"
+    :source_section: ".symtab"
+    :symbols: []
+- :address: 0
+  :size: 266
+  :align: 1
+  :out: ".shstrtab"
+  :inputs:
+  - :address: 0
+    :size: 266
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".shstrtab"
+    :symbols: []
+- :address: 0
+  :size: 511
+  :align: 1
+  :out: ".strtab"
+  :inputs:
+  - :address: 0
+    :size: 511
+    :align: 1
+    :source_file: "<internal>"
+    :source_section: ".strtab"
+    :symbols: []
