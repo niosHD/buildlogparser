@@ -2,6 +2,8 @@
 
 ## v0.4.0 (in development)
 
+* Fixed broken __FILE__ check in command line tool.
+
 ## v0.3.0 (09.05.2018)
 
 * Added a registry which maps string names to parser functions.
