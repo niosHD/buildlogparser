@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.4.0 (in development)
+## v0.3.1 (11.05.2018)
 
 * Fixed broken __FILE__ check in command line tool.
 
