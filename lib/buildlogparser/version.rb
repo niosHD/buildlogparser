@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 Mario Werner <nioshd@gmail.com>
+# Copyright (C) 2017-2018 Mario Werner <nioshd@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -22,7 +22,7 @@ module BuildLogParser
   module VERSION #:nodoc:
     MAJOR = 0
     MINOR = 3
-    PATCH = 0
+    PATCH = 1
 
     STRING = [MAJOR, MINOR, PATCH].join('.')
   end

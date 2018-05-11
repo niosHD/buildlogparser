@@ -121,19 +121,17 @@ where [options] are:
   end
 end
 
-if $0 == __FILE__ then
-  opts = ApplicationLogic.parseComandLine(ARGV)
+opts = ApplicationLogic.parseComandLine(ARGV)
 
-  # load the file into memory and parse it
-  logtext = IO.read(opts[:inputfile])
-  parser = BuildLogParser.getParser(opts[:type])
-  result = BuildLogParser.parse(opts[:type],parser,logtext)
+# load the file into memory and parse it
+logtext = IO.read(opts[:inputfile])
+parser = BuildLogParser.getParser(opts[:type])
+result = BuildLogParser.parse(opts[:type],parser,logtext)
 
-  # save data to the output file
-  result = ApplicationLogic.formatResult(result, opts[:format])
-  if opts[:outputfile] then
-    File.open(opts[:outputfile], 'w') {|f| f.write result }
-  else
-    puts result
-  end
+# save data to the output file
+result = ApplicationLogic.formatResult(result, opts[:format])
+if opts[:outputfile] then
+  File.open(opts[:outputfile], 'w') {|f| f.write result }
+else
+  puts result
 end
