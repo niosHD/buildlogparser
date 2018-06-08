@@ -2,6 +2,8 @@
 
 ## v0.4.0 (in development)
 
+* [ctest/log] Relaxed the command syntax to allow all possible characters.
+
 ## v0.3.1 (11.05.2018)
 
 * Fixed broken __FILE__ check in command line tool.

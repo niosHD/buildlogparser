@@ -189,7 +189,7 @@ class CTestTest < Minitest::Test
     assert_equal 18, parser.data[0][:nr]
     assert_equal 20, parser.data[0][:total_nr]
     assert_equal "indcall", parser.data[0][:name]
-    assert_equal ["/opt/tmp/install/sce-riscv/bin/spike", "--isa=rv32imxie", "/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"], parser.data[0][:command]
+    assert_equal ["/opt/tmp/install/sce-riscv/bin/spike", "--isa=rv32imxie", "--opt=a:b", "/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"], parser.data[0][:command]
     assert_equal "/home/mwerner/Projekte/sce/test_programs/_build/src", parser.data[0][:directory]
     assert_equal "Jul 24 08:44 CEST", parser.data[0][:starttime]
     assert_equal 0.45, parser.data[0][:time_sec]
