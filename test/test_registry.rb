@@ -59,7 +59,7 @@ class RegistryTest < Minitest::Test
     template(:lldMap, BuildLogParser::LLDParser)
   end
 
-  def test_scimark2_entry
+  def test_scimark2_parser_entry
     template(:scimark2, BuildLogParser::Scimark2Parser)
   end
 
