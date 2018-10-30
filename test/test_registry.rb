@@ -34,6 +34,7 @@ class RegistryTest < Minitest::Test
                                                       :ctestLog,
                                                       :dhrystone,
                                                       :lldMap,
+                                                      :lmbenchLatMemRd,
                                                       :scimark2,
                                                       :sizeBerkeleyStdout].sort
   end
@@ -57,6 +58,10 @@ class RegistryTest < Minitest::Test
 
   def test_lld_parser_entry
     template(:lldMap, BuildLogParser::LLDParser)
+  end
+
+  def test_lmbench_parser_entry
+    template(:lmbenchLatMemRd, BuildLogParser::LmbenchParser)
   end
 
   def test_scimark2_parser_entry
