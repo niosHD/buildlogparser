@@ -33,6 +33,7 @@ class RegistryTest < Minitest::Test
                                                       :ctestStdout,
                                                       :ctestLog,
                                                       :dhrystone,
+                                                      :gem5Stats,
                                                       :lldMap,
                                                       :lmbenchLatMemRd,
                                                       :scimark2,
@@ -54,6 +55,10 @@ class RegistryTest < Minitest::Test
 
   def test_dhrystone_parser_entry
     template(:dhrystone, BuildLogParser::DhrystoneParser)
+  end
+
+  def test_gem5_parser_entry
+    template(:gem5Stats, BuildLogParser::Gem5Parser)
   end
 
   def test_lld_parser_entry
