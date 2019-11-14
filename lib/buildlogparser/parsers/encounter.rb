@@ -47,7 +47,7 @@ module BuildLogParser
       rule(:tableheader) do
         space? >> str('Instance') >>  space? >> str('Cells') >> space? >> str('Cell Area') >>
             space? >> str('Net Area') >> space? >> str('Total Area') >> space? >> newline >>
-        str("---------------------------------------------------------------------------------------------------") >> newline
+        match['-'].repeat >> newline
       end
 
       rule(:entries) do
