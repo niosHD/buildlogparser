@@ -20,7 +20,6 @@
 #
 require 'parslet'
 
-# FIXME Currently just parsed as simple table. Extend the parser to extract the hierarchy.
 module BuildLogParser
   module EncounterArea
     class Parser < Parslet::Parser
@@ -33,10 +32,16 @@ module BuildLogParser
       rule(:integer)   { match['0-9'].repeat(1) }
       rule(:name)      { match['[:alnum:]=\+\.\-_\:'].repeat(1) }
 
-      rule(:tableentry) do
-        name.as(:instance) >> space? >> integer.as(:cells) >> space? >>
+      # https://stackoverflow.com/a/16563186
+      def indent(depth)
+        str('  '*depth)
+      end
+      def entry(depth)
+        indent(depth) >> name.as(:instance) >> space? >> integer.as(:cells) >> space? >>
         integer.as(:cell_area) >> space? >> integer.as(:net_area) >> space? >>
-        integer.as(:total_area)
+        integer.as(:total_area) >>
+          (dynamic{|s,c| space? >> newline >> entry(depth+1).repeat.as(:childs)}).maybe >>
+        (space? >> newline).maybe
       end
 
       rule(:tableheader) do
@@ -46,7 +51,7 @@ module BuildLogParser
       end
 
       rule(:entries) do
-        tableheader >> (space? >> tableentry >> space? >> newline).repeat.as(:numbers)
+        tableheader >> entry(0).repeat.as(:numbers)
       end
 
       rule(:start) { (entries | (restofline >> newline | any).as(:drop)).repeat.as(:array) }
@@ -55,8 +60,12 @@ module BuildLogParser
 
     class Transform < Parslet::Transform
       rule(:drop => subtree(:tree)) { }
-      rule(:instance => simple(:instance), :cells => simple(:cells), :cell_area => simple(:cell_area), :net_area => simple(:net_area), :total_area => simple(:total_area)) do
-        { :instance => String(instance), :cells => Integer(cells), :cell_area => Integer(cell_area), :net_area => Integer(net_area), :total_area => Integer(total_area) }
+      rule(:instance => simple(:instance), :cells => simple(:cells), :cell_area => simple(:cell_area),
+           :net_area => simple(:net_area), :total_area => simple(:total_area), :childs => subtree(:childs)) do
+        res = {:instance => String(instance), :cells => Integer(cells), :cell_area => Integer(cell_area),
+               :net_area => Integer(net_area), :total_area => Integer(total_area) }
+        res[:childs] = childs unless childs.empty?
+        res
       end
       rule(:numbers => subtree(:tree)) { tree }
       rule(:array => subtree(:tree)) { tree.compact.flatten }
