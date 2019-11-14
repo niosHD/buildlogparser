@@ -7,6 +7,7 @@
 * Added support for parsing *scimark2* command line output.
 * Added support for parsing lmbench *lat_mem_rd* command line output.
 * Added support for parsing *gem5* generated `stats.txt` files.
+* Added support for parsing *encounter* generated area report files.
 
 ## v0.3.1 (11.05.2018)
 

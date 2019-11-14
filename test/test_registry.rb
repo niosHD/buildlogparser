@@ -33,6 +33,7 @@ class RegistryTest < Minitest::Test
                                                       :ctestStdout,
                                                       :ctestLog,
                                                       :dhrystone,
+                                                      :encounterArea,
                                                       :gem5Stats,
                                                       :lldMap,
                                                       :lmbenchLatMemRd,
@@ -55,6 +56,10 @@ class RegistryTest < Minitest::Test
 
   def test_dhrystone_parser_entry
     template(:dhrystone, BuildLogParser::DhrystoneParser)
+  end
+
+  def test_encounter_parser_entry
+    template(:encounterArea, BuildLogParser::EncounterAreaParser)
   end
 
   def test_gem5_parser_entry
