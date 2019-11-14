@@ -67,7 +67,7 @@ module BuildLogParser
         if Gem5Stats::valid_symbol_sequence?(f)
           keys.concat(Gem5Stats::to_symbol_sequence(f))
         else
-          keys.append(f)
+          keys.push(f)
         end
       }
       return keys
