@@ -77,6 +77,7 @@ $ RUBYLIB=<repo-path>/lib <repo-path>/bin/buildlogparser <arguments>
 * cmake/ctest 3.5.1
 * coremark 1.0
 * dhrystone (C Version) 2.1 and 2.2
+* gem5 (development version)
 * lld 7.0 (development version)
 * lmbench lat_mem_rd 3.0-a9
 * scimark (C Version) 2.0
