@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.4.0 (in development)
+## v0.4.0 (08.02.2020)
 
 * Updated command line parser library to new name.
 * [ctest/log] Relaxed the command syntax to allow all possible characters.

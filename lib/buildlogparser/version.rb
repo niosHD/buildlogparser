@@ -24,6 +24,6 @@ module BuildLogParser
     MINOR = 4
     PATCH = 0
 
-    STRING = [MAJOR, MINOR, PATCH].join('.') + '-dev'
+    STRING = [MAJOR, MINOR, PATCH].join('.')
   end
 end
