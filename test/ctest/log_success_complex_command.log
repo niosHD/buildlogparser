@@ -2,7 +2,7 @@ Start testing: Jul 24 08:44 CEST
 ----------------------------------------------------------
 18/20 Testing: indcall
 18/20 Test: indcall
-Command: "/opt/tmp/install/sce-riscv/bin/spike" "--isa=rv32imxie" "/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"
+Command: "/opt/tmp/install/sce-riscv/bin/spike" "--isa=rv32imxie" "--opt=a:b" "/home/mwerner/Projekte/sce/test_programs/_build/src/indcall"
 Directory: /home/mwerner/Projekte/sce/test_programs/_build/src
 "indcall" start time: Jul 24 08:44 CEST
 Output:

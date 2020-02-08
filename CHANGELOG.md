@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.4.0 (08.02.2020)
+
+* Updated command line parser library to new name.
+* [ctest/log] Relaxed the command syntax to allow all possible characters.
+* Added support for parsing *scimark2* command line output.
+* Added support for parsing lmbench *lat_mem_rd* command line output.
+* Added support for parsing *gem5* generated `stats.txt` files.
+
 ## v0.3.1 (11.05.2018)
 
 * Fixed broken __FILE__ check in command line tool.

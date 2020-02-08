@@ -76,9 +76,9 @@ module BuildLogParser
 
       rule(:endofoutput) { newline.maybe >> str('<end of output>') >> newline }
       rule(:output)      { ( endofoutput.absent? >> any ).repeat }
-      rule(:endtime) { str('end time: ') >> restofline.as(:endtime) }
+      rule(:endtime)     { str('end time: ') >> restofline.as(:endtime) }
 
-      rule(:quotedcommand) { str('"') >> path.as(:commandstring) >> str('"') }
+      rule(:quotedcommand) { str('"') >> match['^\"'].repeat(1).as(:commandstring) >> str('"') }
       rule(:commandlist) { quotedcommand >> (space >> quotedcommand).repeat }
 
       rule(:event) do

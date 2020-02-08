@@ -26,13 +26,13 @@ require 'yaml'
 require 'rubygems'
 require 'buildlogparser'
 require 'terminal-table'
-require 'trollop'
+require 'optimist'
 
 module ApplicationLogic
   def self.parseComandLine(argv)
     parsers = BuildLogParser::getParserNames
     formats = [:yaml, :csv, :table]
-    p = Trollop::Parser.new do
+    p = Optimist::Parser.new do
       banner <<-EOS
 Extracts information from various log file formats.
 
@@ -48,7 +48,7 @@ where [options] are:
       opt :parsermodule, "Path to ruby file or gem name that implements additional parsers.", :type => String, :multi => true, :short => "-p"
     end
     opts = {}
-    Trollop::with_standard_exception_handling p do
+    Optimist::with_standard_exception_handling p do
       opts = p.parse argv
     end
 
