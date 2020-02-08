@@ -1,6 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/buildlogparser.svg)](https://rubygems.org/gems/buildlogparser)
-[![Build Status](https://travis-ci.org/niosHD/buildlogparser.svg?branch=develop)](https://travis-ci.org/niosHD/buildlogparser)
-[![codecov](https://codecov.io/gh/niosHD/buildlogparser/branch/develop/graph/badge.svg)](https://codecov.io/gh/niosHD/buildlogparser)
+[![Build Status](https://travis-ci.org/niosHD/buildlogparser.svg?branch=master)](https://travis-ci.org/niosHD/buildlogparser)
+[![codecov](https://codecov.io/gh/niosHD/buildlogparser/branch/master/graph/badge.svg)](https://codecov.io/gh/niosHD/buildlogparser)
 
 Collection of various parsers for the extraction of information from build and execution logs.
 
