@@ -55,7 +55,7 @@ where [options] are:
     # load additional parser modules
     if opts[:parsermodule] then
       opts[:parsermodule].each do |path|
-        if File.exists?(path) then
+        if File.exist?(path) then
           path = File.realpath(path).chomp(File.extname(path))
         end
         require path
@@ -72,7 +72,7 @@ where [options] are:
     unless parsers.include?(opts[:type]) then
       raise ArgumentError, "File type '#{opts[:type]}' is not supported"
     end
-    unless File.exists?(opts[:inputfile]) then
+    unless File.exist?(opts[:inputfile]) then
       raise ArgumentError, "Inputfile '#{opts[:inputfile]}' does not exist"
     end
     return opts
