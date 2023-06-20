@@ -4,6 +4,7 @@
 
 * Replaced defunct Travis CI with Github Actions.
 * Updated development dependencies.
+* Change deprecated File.exists? to File.exist? in command line tool (thank you Robert [#4](https://github.com/niosHD/buildlogparser/pull/4))
 
 ## v0.4.0 (08.02.2020)
 
