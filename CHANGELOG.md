@@ -2,6 +2,9 @@
 
 ## v0.5.0 (in development)
 
+* Replaced defunct Travis CI with Github Actions.
+* Updated development dependencies.
+
 ## v0.4.0 (08.02.2020)
 
 * Updated command line parser library to new name.

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [develop, 'feature/**']
+  pull_request:
+    branches: [develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['2.3']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          bundler-cache: true 
+          ruby-version: ${{ matrix.ruby-version }}
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rake
+      - name: Upload coverage result to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: coverage/coverage.xml
